@@ -1,4 +1,4 @@
-package yarinhala.com.shenkar.brithday;
+package yarinhala.com.shenkar.androidclassexlist;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
@@ -11,6 +11,9 @@ public interface DateDoa {
 
     @Query("SELECT * FROM PickenDate")
     List<PickenDate> getAllDates();
+
+    @Query("DELETE FROM PickenDate")
+    void  deleteAll();
 
     @Insert
     void insertAllDate(PickenDate... dates);

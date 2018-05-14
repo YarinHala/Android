@@ -1,8 +1,7 @@
-package yarinhala.com.shenkar.brithday;
+package yarinhala.com.shenkar.androidclassexlist;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.arch.persistence.room.Room;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,21 +10,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-
 import java.util.Calendar;
-import java.util.Date;
+import java.util.List;
 
 public class CreateDate extends AppCompatActivity{
 
     private Button btn;
     private Button btn2;
     private EditText name;
-   //final AppDataBase db = Room.databaseBuilder(getApplicationContext(),AppDataBase.class,"prodaction").allowMainThreadQueries().build();
-
     int year_x,month_x,day_x;
     int sum;
     static final int DIALOG_ID = 0;
     private EditText dateLabel;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,8 +54,11 @@ public class CreateDate extends AppCompatActivity{
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainActivity.db.dateDao().insertAllDate(new PickenDate(name.getText().toString(),dateLabel.getText().toString()));
-                startActivity(new Intent(CreateDate.this,MainActivity.class));
+                BirthdayActivity.db.dateDao().insertAllDate(new PickenDate(name.getText().toString(),dateLabel.getText().toString()));
+                List<PickenDate> dates;
+                //db.dateDao().deleteAll();
+
+                startActivity(new Intent(CreateDate.this,BirthdayActivity.class));
             }
         });
     }
@@ -78,14 +78,14 @@ public class CreateDate extends AppCompatActivity{
     {
         @Override
         public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-           year_x = year;
-           month_x = month;
-           day_x = dayOfMonth;
-           sum = 1;
+            year_x = year;
+            month_x = month;
+            day_x = dayOfMonth;
+            sum = 1;
 
-           dateLabel = findViewById(R.id.editTextDate);
-           dateLabel.setText(dayOfMonth + "/" +month+"/"+year+"");
-           name = findViewById(R.id.editName);
+            dateLabel = findViewById(R.id.editTextDate);
+            dateLabel.setText(dayOfMonth + "/" +month+"/"+year+"");
+            name = findViewById(R.id.editName);
 
 
         }
