@@ -54,8 +54,17 @@ public class CreateDate extends AppCompatActivity{
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                List<PickenDate> dates = BirthdayActivity.db.dateDao().getAllDates();
                 BirthdayActivity.db.dateDao().insertAllDate(new PickenDate(name.getText().toString(),dateLabel.getText().toString()));
-                List<PickenDate> dates;
+
+                for (int i = 0 ; i < dates.size() ; i ++)
+                {
+                    BirthdayActivity.db.dateDao().insertAllDate();
+                }
+
+
+
+
                 //db.dateDao().deleteAll();
 
                 startActivity(new Intent(CreateDate.this,BirthdayActivity.class));
