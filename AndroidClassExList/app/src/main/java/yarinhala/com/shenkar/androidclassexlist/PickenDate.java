@@ -14,17 +14,20 @@ public class PickenDate {
     @ColumnInfo(name = "name")
     private String name;
 
-
-
     @ColumnInfo(name = "date")
     private String date;
 
+    @ColumnInfo(name = "arrange")
+    private int arrange;
 
+    @ColumnInfo(name = "difference")
+    private int difference;
 
-
-    public PickenDate(String name, String date) {
+    public PickenDate(String name, String date,int arrange,int difference) {
         this.name = name;
         this.date = date;
+        this.arrange = arrange;
+        this.difference = difference;
     }
 
     public String getName() {
@@ -49,6 +52,22 @@ public class PickenDate {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getArrange() {
+        return arrange;
+    }
+
+    public void setArrange(int arrange) {
+        this.arrange = arrange;
+    }
+
+    public int getDifference() {
+        return difference;
+    }
+
+    public void setDifference(int difference) {
+        this.difference = difference;
     }
 }
 

@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
 import java.util.List;
@@ -14,13 +15,15 @@ import java.util.List;
 
 public class BirthdayActivity  extends AppCompatActivity  {
 
-        FloatingActionButton fab;
-        RecyclerView recyclerView;
-        RecyclerView.Adapter adapter;
-        static AppDataBase db;
+    private static final String TAG = BirthdayActivity.class.getSimpleName();
+    FloatingActionButton fab,fab2;
+    RecyclerView recyclerView;
+    RecyclerView.Adapter adapter;
+    static AppDataBase db;
+    static List<PickenDate> dates;
 
 
-        @Override
+    @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_birthday);
@@ -28,13 +31,23 @@ public class BirthdayActivity  extends AppCompatActivity  {
             //setSupportActionBar(toolbar);
             recyclerView = findViewById(R.id.recycler_view);
 
-
             db = Room.databaseBuilder(getApplicationContext(),AppDataBase.class,"prodaction").allowMainThreadQueries().build();
 
-            List<PickenDate> dates =  db.dateDao().getAllDates();
+            dates = BirthdayActivity.db.dateDao().getAllDates();
+            db.dateDao().deleteAll();
+
+            Log.d(TAG, "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+
+            for (PickenDate tempDates :dates) {
+                db.dateDao().insertAllDate(tempDates);
+                Log.d(TAG, tempDates.getDate() +" - "+ Integer.toString( tempDates.getDifference()));
+                Log.d(TAG, "----------------------------");
+            }
+            Log.d(TAG, "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+
 
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            adapter = new DateAdapter(dates);
+            adapter = new DateAdapter(db.dateDao().getAllDates());
             recyclerView.setAdapter(adapter);
 
             fab = findViewById(R.id.fab);
@@ -45,7 +58,14 @@ public class BirthdayActivity  extends AppCompatActivity  {
                 }
             });
 
-
+            fab2 = findViewById(R.id.fab2);
+            fab2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    db.dateDao().deleteAll();
+                    startActivity(new Intent(BirthdayActivity.this,BirthdayActivity.class));
+                }
+            });
         }
 }
 

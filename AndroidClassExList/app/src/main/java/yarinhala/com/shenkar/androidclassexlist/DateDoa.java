@@ -9,7 +9,7 @@ import java.util.List;
 @Dao
 public interface DateDoa {
 
-    @Query("SELECT * FROM PickenDate")
+    @Query("SELECT * FROM PickenDate order by difference")
     List<PickenDate> getAllDates();
 
     @Query("DELETE FROM PickenDate")
