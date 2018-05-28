@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     //RecyclerView.Adapter adapter;
     TextView calculator;
     TextView birthday;
+    TextView ballGame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        ballGame = findViewById(R.id.ballGame);
+        ballGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,GameActivity.class));
+            }
+        });
 
     }
 

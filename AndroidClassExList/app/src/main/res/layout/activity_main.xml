@@ -24,12 +24,23 @@
             android:focusable="true"/>
 
         <TextView
-            android:id="@+id/birthday"
+        android:id="@+id/birthday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="EX2 - Birthdays Lite SQL"
+        android:paddingTop="20dp"
+        android:clickable="true"
+        android:focusable="true"/>
+
+        <TextView
+            android:id="@+id/ballGame"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="EX2 - Birthdays Lite SQL"
+            android:text="EX2 - Game Ball Trap"
             android:paddingTop="20dp"
             android:clickable="true"
             android:focusable="true"/>
+
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
