@@ -17,6 +17,7 @@ public class BirthdayActivity  extends AppCompatActivity  {
 
     private static final String TAG = BirthdayActivity.class.getSimpleName();
     FloatingActionButton fab,fab2;
+
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     static AppDataBase db;

@@ -1,0 +1,1145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:id="@+id/Numbers"
+        android:layout_width="43dp"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <Button
+            android:id="@+id/d9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:onClick="ButtonOnClick"
+            android:text="9"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/d8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ButtonOnClick"
+            android:text="8"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/d7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ButtonOnClick"
+            android:text="7"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/d6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ButtonOnClick"
+            android:text="6"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/d5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ButtonOnClick"
+            android:text="5"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/d4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ButtonOnClick"
+            android:text="4"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/d3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ButtonOnClick"
+            android:text="3"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/d2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ButtonOnClick"
+            android:text="2"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/d1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ButtonOnClick"
+            android:text="1"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/d0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ButtonOnClick"
+            android:text="0"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/GuessTable"
+        android:layout_width="309dp"
+        android:layout_height="507dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/Numbers"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="ExtraText">
+
+        /*Guess 0*/
+        <RelativeLayout
+            android:id="@+id/Guess_0"
+            android:layout_width="320dp"
+            android:layout_height="50dp">
+
+            <TextView
+                android:id="@+id/g0s0"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/g0s1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g0s0"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/g0s2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g0s1"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/g0s3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g0s2"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <ImageView
+                android:id="@+id/check_result0"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g0s3"
+                android:onClick="CheckResult"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@android:drawable/ic_media_rew" />
+
+            <ImageView
+                android:id="@+id/g0pin0"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/check_result0"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+            <ImageView
+                android:id="@+id/g0pin1"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g0pin0"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+            <ImageView
+                android:id="@+id/g0pin2"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toStartOf="@+id/g0pin1"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+            <ImageView
+                android:id="@+id/g0pin3"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@+id/g0pin2"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+
+        </RelativeLayout>
+        /*Guess 1*/
+        <RelativeLayout
+            android:id="@+id/Guess_1"
+            android:layout_width="320dp"
+            android:layout_height="50dp">
+
+            <TextView
+                android:id="@+id/g1s0"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/g1s1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g1s0"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/g1s2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g1s1"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/g1s3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g1s2"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <ImageView
+                android:id="@+id/check_result1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:onClick="CheckResult"
+                android:layout_toEndOf="@+id/g1s3"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@android:drawable/ic_media_rew" />
+
+            <ImageView
+                android:id="@+id/g1pin0"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/check_result1"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+            <ImageView
+                android:id="@+id/g1pin1"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g1pin0"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+            <ImageView
+                android:id="@+id/g1pin2"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toStartOf="@+id/g1pin1"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+            <ImageView
+                android:id="@+id/g1pin3"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@+id/g1pin2"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+
+        </RelativeLayout>
+        /*Guess 2*/
+        <RelativeLayout
+            android:id="@+id/Guess_2"
+            android:layout_width="320dp"
+            android:layout_height="50dp">
+
+            <TextView
+                android:id="@+id/g2s0"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/g2s1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g2s0"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/g2s2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g2s1"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/g2s3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g2s2"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <ImageView
+                android:id="@+id/check_result2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g2s3"
+                android:onClick="CheckResult"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@android:drawable/ic_media_rew" />
+
+            <ImageView
+                android:id="@+id/g2pin0"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/check_result2"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+            <ImageView
+                android:id="@+id/g2pin1"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g2pin0"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+            <ImageView
+                android:id="@+id/g2pin2"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toStartOf="@+id/g2pin1"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+            <ImageView
+                android:id="@+id/g2pin3"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@+id/g2pin2"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+
+        </RelativeLayout>
+        /*Guess 3*/
+        <RelativeLayout
+            android:id="@+id/Guess_3"
+            android:layout_width="320dp"
+            android:layout_height="50dp">
+
+            <TextView
+                android:id="@+id/g3s0"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/g3s1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g3s0"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/g3s2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g3s1"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/g3s3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g3s2"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <ImageView
+                android:id="@+id/check_result3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:onClick="CheckResult"
+                android:layout_toEndOf="@+id/g3s3"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@android:drawable/ic_media_rew" />
+
+            <ImageView
+                android:id="@+id/g3pin0"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/check_result3"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+            <ImageView
+                android:id="@+id/g3pin1"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g3pin0"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+            <ImageView
+                android:id="@+id/g3pin2"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toStartOf="@+id/g3pin1"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+            <ImageView
+                android:id="@+id/g3pin3"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@+id/g3pin2"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+
+        </RelativeLayout>
+        /*Guess 4*/
+        <RelativeLayout
+            android:id="@+id/Guess_4"
+            android:layout_width="320dp"
+            android:layout_height="50dp">
+
+            <TextView
+                android:id="@+id/g4s0"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/g4s1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g4s0"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/g4s2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g4s1"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/g4s3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g4s2"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <ImageView
+                android:id="@+id/check_result4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:onClick="CheckResult"
+                android:layout_toEndOf="@+id/g4s3"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@android:drawable/ic_media_rew" />
+
+            <ImageView
+                android:id="@+id/g4pin0"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/check_result4"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+            <ImageView
+                android:id="@+id/g4pin1"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g4pin0"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+            <ImageView
+                android:id="@+id/g4pin2"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toStartOf="@+id/g4pin1"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+            <ImageView
+                android:id="@+id/g4pin3"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@+id/g4pin2"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+
+        </RelativeLayout>
+        /*Guess 5*/
+        <RelativeLayout
+            android:id="@+id/Guess_5"
+            android:layout_width="320dp"
+            android:layout_height="50dp">
+
+            <TextView
+                android:id="@+id/g5s0"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/g5s1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g5s0"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/g5s2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g5s1"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/g5s3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g5s2"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <ImageView
+                android:id="@+id/check_result5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:onClick="CheckResult"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g5s3"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@android:drawable/ic_media_rew" />
+
+            <ImageView
+                android:id="@+id/g5pin0"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/check_result5"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+            <ImageView
+                android:id="@+id/g5pin1"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g5pin0"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+            <ImageView
+                android:id="@+id/g5pin2"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toStartOf="@+id/g5pin1"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+            <ImageView
+                android:id="@+id/g5pin3"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@+id/g5pin2"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+
+        </RelativeLayout>
+        /*Guess 6*/
+        <RelativeLayout
+            android:id="@+id/Guess_6"
+            android:layout_width="320dp"
+            android:layout_height="50dp">
+
+            <TextView
+                android:id="@+id/g6s0"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/g6s1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g6s0"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/g6s2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g6s1"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/g6s3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g6s2"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <ImageView
+                android:id="@+id/check_result6"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:onClick="CheckResult"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g6s3"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@android:drawable/ic_media_rew" />
+
+            <ImageView
+                android:id="@+id/g6pin0"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/check_result6"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+            <ImageView
+                android:id="@+id/g6pin1"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g6pin0"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+            <ImageView
+                android:id="@+id/g6pin2"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toStartOf="@+id/g6pin1"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+            <ImageView
+                android:id="@+id/g6pin3"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@+id/g6pin2"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+
+        </RelativeLayout>
+        /*Guess 7*/
+        <RelativeLayout
+            android:id="@+id/Guess_7"
+            android:layout_width="320dp"
+            android:layout_height="50dp">
+
+            <TextView
+                android:id="@+id/g7s0"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/g7s1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g7s0"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/g7s2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g7s1"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/g7s3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g7s2"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <ImageView
+                android:id="@+id/check_result7"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:onClick="CheckResult"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g7s3"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@android:drawable/ic_media_rew" />
+
+            <ImageView
+                android:id="@+id/g7pin0"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/check_result7"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+            <ImageView
+                android:id="@+id/g7pin1"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g7pin0"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+            <ImageView
+                android:id="@+id/g7pin2"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toStartOf="@+id/g7pin1"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+            <ImageView
+                android:id="@+id/g7pin3"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@+id/g7pin2"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+
+        </RelativeLayout>
+        /*Guess 8*/
+        <RelativeLayout
+            android:id="@+id/Guess_8"
+            android:layout_width="320dp"
+            android:layout_height="50dp">
+
+            <TextView
+                android:id="@+id/g8s0"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/g8s1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g8s0"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/g8s2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g8s1"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/g8s3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g8s2"
+                android:background="@android:drawable/checkbox_off_background"
+                android:onClick="GuessOnClick"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <ImageView
+                android:id="@+id/check_result8"
+                android:layout_width="wrap_content"
+                android:onClick="CheckResult"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g8s3"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@android:drawable/ic_media_rew" />
+
+            <ImageView
+                android:id="@+id/g8pin0"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/check_result8"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+            <ImageView
+                android:id="@+id/g8pin1"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/g8pin0"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+            <ImageView
+                android:id="@+id/g8pin2"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toStartOf="@+id/g8pin1"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+            <ImageView
+                android:id="@+id/g8pin3"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@+id/g8pin2"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/signal_off" />
+
+
+        </RelativeLayout>
+
+        /*Result need to be guess*/
+
+        <RelativeLayout
+            android:id="@+id/Result"
+            android:layout_width="320dp"
+            android:layout_height="50dp">
+
+            <TextView
+                android:id="@+id/r0"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
+                android:background="@android:drawable/checkbox_off_background"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/r1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/r0"
+                android:background="@android:drawable/checkbox_off_background"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/r2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/r1"
+                android:background="@android:drawable/checkbox_off_background"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/r3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/r2"
+                android:background="@android:drawable/checkbox_off_background"
+                android:paddingTop="5dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="30sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
