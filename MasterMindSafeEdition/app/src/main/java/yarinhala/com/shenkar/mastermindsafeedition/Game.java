@@ -1,5 +1,7 @@
 package yarinhala.com.shenkar.mastermindsafeedition;
 
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +14,12 @@ import android.widget.TextView;
 import java.util.Random;
 
 public class Game extends AppCompatActivity {
+
+    /*music and sound*/
+    MediaPlayer beckgroundsong;
+    MediaPlayer buttonEffect;
+    AudioManager amanger;
+    int currentvol;
 
     private int number_picketed;
     private TextView textView_picketed;
