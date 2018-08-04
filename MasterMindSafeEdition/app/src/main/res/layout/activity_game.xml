@@ -1,31 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/table"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        android:minWidth="300dp"
+
+    <LinearLayout
+        android:id="@+id/Numbers"
+        android:layout_width="43dp"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/constraintLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <Button
+            android:id="@+id/d9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:onClick="ButtonOnClick"
+            android:text="9"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/d8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ButtonOnClick"
+            android:text="8"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/d7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ButtonOnClick"
+            android:text="7"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/d6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ButtonOnClick"
+            android:text="6"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/d5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ButtonOnClick"
+            android:text="5"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/d4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ButtonOnClick"
+            android:text="4"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/d3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ButtonOnClick"
+            android:text="3"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/d2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ButtonOnClick"
+            android:text="2"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/d1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ButtonOnClick"
+            android:text="1"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/d0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ButtonOnClick"
+            android:text="0"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/GuessTable"
+        android:layout_width="309dp"
+        android:layout_height="507dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/Numbers"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="ExtraText">
 
-
-        <android.support.constraint.ConstraintLayout
+        /*Guess 0*/
+        <RelativeLayout
             android:id="@+id/Guess_0"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            app:layout_constraintBottom_toTopOf="@+id/Guess_1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_width="320dp"
+            android:layout_height="50dp">
 
             <TextView
                 android:id="@+id/g0s0"
@@ -33,90 +129,61 @@
                 android:layout_height="50dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="10dp"
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="0"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g0s1"
-                app:layout_constraintHorizontal_chainStyle="spread_inside"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/g0s1"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_alignParentTop="true"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp"
                 android:layout_toEndOf="@+id/g0s0"
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="1"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g0s2"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/g0s2"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_alignParentTop="true"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp"
                 android:layout_toEndOf="@+id/g0s1"
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="2"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g0s3"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/g0s3"
-                android:layout_width="49dp"
+                android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_alignParentTop="true"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp"
                 android:layout_toEndOf="@+id/g0s2"
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="3"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/check_result0"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
             <ImageView
                 android:id="@+id/check_result0"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/g0s3"
-                android:contentDescription="@string/todo"
                 android:onClick="CheckResult"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g0pin0"
-                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@string/todo"
                 app:srcCompat="@android:drawable/ic_media_rew" />
 
             <ImageView
@@ -126,8 +193,6 @@
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/check_result0"
                 android:contentDescription="@string/todo"
-                app:layout_constraintEnd_toStartOf="@+id/g0pin1"
-                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/signal_off" />
 
             <ImageView
@@ -137,8 +202,6 @@
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/g0pin0"
                 android:contentDescription="@string/todo"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/signal_off" />
 
             <ImageView
@@ -148,8 +211,6 @@
                 android:layout_alignParentBottom="true"
                 android:layout_toStartOf="@+id/g0pin1"
                 android:contentDescription="@string/todo"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g0pin3"
                 app:srcCompat="@drawable/signal_off" />
 
             <ImageView
@@ -159,23 +220,15 @@
                 android:layout_alignParentBottom="true"
                 android:layout_toEndOf="@+id/g0pin2"
                 android:contentDescription="@string/todo"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:srcCompat="@drawable/signal_off" />
 
 
-        </android.support.constraint.ConstraintLayout>
-
-        <android.support.constraint.ConstraintLayout
+        </RelativeLayout>
+        /*Guess 1*/
+        <RelativeLayout
             android:id="@+id/Guess_1"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginBottom="4dp"
-            android:layout_marginTop="4dp"
-            app:layout_constraintBottom_toTopOf="@+id/Guess_2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Guess_0">
+            android:layout_width="320dp"
+            android:layout_height="50dp">
 
             <TextView
                 android:id="@+id/g1s0"
@@ -183,20 +236,13 @@
                 android:layout_height="50dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="4"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g1s1"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintHorizontal_chainStyle="spread_inside"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/g1s1"
@@ -207,14 +253,9 @@
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="5"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g1s2"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/g1s2"
@@ -225,14 +266,9 @@
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="6"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g1s3"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/g1s3"
@@ -243,29 +279,19 @@
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="7"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/check_result1"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
             <ImageView
                 android:id="@+id/check_result1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
+                android:onClick="CheckResult"
                 android:layout_toEndOf="@+id/g1s3"
                 android:contentDescription="@string/todo"
-                android:onClick="CheckResult"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g1pin0"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.485"
-                app:srcCompat="@android:drawable/ic_media_rew"
-                tools:visibility="invisible" />
+                app:srcCompat="@android:drawable/ic_media_rew" />
 
             <ImageView
                 android:id="@+id/g1pin0"
@@ -274,8 +300,6 @@
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/check_result1"
                 android:contentDescription="@string/todo"
-                app:layout_constraintEnd_toStartOf="@+id/g1pin1"
-                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/signal_off" />
 
             <ImageView
@@ -285,8 +309,6 @@
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/g1pin0"
                 android:contentDescription="@string/todo"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/signal_off" />
 
             <ImageView
@@ -296,8 +318,6 @@
                 android:layout_alignParentBottom="true"
                 android:layout_toStartOf="@+id/g1pin1"
                 android:contentDescription="@string/todo"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g1pin1"
                 app:srcCompat="@drawable/signal_off" />
 
             <ImageView
@@ -307,23 +327,15 @@
                 android:layout_alignParentBottom="true"
                 android:layout_toEndOf="@+id/g1pin2"
                 android:contentDescription="@string/todo"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:srcCompat="@drawable/signal_off" />
 
 
-        </android.support.constraint.ConstraintLayout>
-
-        <android.support.constraint.ConstraintLayout
+        </RelativeLayout>
+        /*Guess 2*/
+        <RelativeLayout
             android:id="@+id/Guess_2"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/Guess_3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/Result"
-            app:layout_constraintTop_toBottomOf="@+id/Guess_1">
+            android:layout_width="320dp"
+            android:layout_height="50dp">
 
             <TextView
                 android:id="@+id/g2s0"
@@ -331,39 +343,26 @@
                 android:layout_height="50dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="8"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g2s1"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/g2s1"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_alignParentTop="true"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp"
                 android:layout_toEndOf="@+id/g2s0"
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="9"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g2s2"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/g2s2"
@@ -374,14 +373,9 @@
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="10"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g2s3"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/g2s3"
@@ -392,28 +386,19 @@
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="11"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/check_result2"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
             <ImageView
                 android:id="@+id/check_result2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/g2s3"
-                android:contentDescription="@string/todo"
                 android:onClick="CheckResult"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g2pin0"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@android:drawable/ic_media_rew"
-                tools:visibility="invisible" />
+                android:contentDescription="@string/todo"
+                app:srcCompat="@android:drawable/ic_media_rew" />
 
             <ImageView
                 android:id="@+id/g2pin0"
@@ -422,8 +407,6 @@
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/check_result2"
                 android:contentDescription="@string/todo"
-                app:layout_constraintEnd_toStartOf="@+id/g2pin1"
-                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/signal_off" />
 
             <ImageView
@@ -433,8 +416,6 @@
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/g2pin0"
                 android:contentDescription="@string/todo"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/signal_off" />
 
             <ImageView
@@ -444,8 +425,6 @@
                 android:layout_alignParentBottom="true"
                 android:layout_toStartOf="@+id/g2pin1"
                 android:contentDescription="@string/todo"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g2pin3"
                 app:srcCompat="@drawable/signal_off" />
 
             <ImageView
@@ -455,22 +434,15 @@
                 android:layout_alignParentBottom="true"
                 android:layout_toEndOf="@+id/g2pin2"
                 android:contentDescription="@string/todo"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:srcCompat="@drawable/signal_off" />
 
 
-        </android.support.constraint.ConstraintLayout>
-
-        <android.support.constraint.ConstraintLayout
+        </RelativeLayout>
+        /*Guess 3*/
+        <RelativeLayout
             android:id="@+id/Guess_3"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginTop="4dp"
-            app:layout_constraintBottom_toTopOf="@+id/Guess_4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Guess_2">
+            android:layout_width="320dp"
+            android:layout_height="50dp">
 
             <TextView
                 android:id="@+id/g3s0"
@@ -478,20 +450,13 @@
                 android:layout_height="50dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="10dp"
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="12"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g3s1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/g3s1"
@@ -502,14 +467,9 @@
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="13"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g3s2"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/g3s2"
@@ -520,14 +480,9 @@
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="14"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g3s3"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/g3s3"
@@ -538,29 +493,19 @@
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="15"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/check_result3"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+                android:textSize="30sp" />
 
             <ImageView
                 android:id="@+id/check_result3"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
+                android:onClick="CheckResult"
                 android:layout_toEndOf="@+id/g3s3"
                 android:contentDescription="@string/todo"
-                android:onClick="CheckResult"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g3pin0"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@android:drawable/ic_media_rew"
-                tools:visibility="invisible" />
+                app:srcCompat="@android:drawable/ic_media_rew" />
 
             <ImageView
                 android:id="@+id/g3pin0"
@@ -569,8 +514,6 @@
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/check_result3"
                 android:contentDescription="@string/todo"
-                app:layout_constraintEnd_toStartOf="@+id/g3pin1"
-                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/signal_off" />
 
             <ImageView
@@ -580,8 +523,6 @@
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/g3pin0"
                 android:contentDescription="@string/todo"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/signal_off" />
 
             <ImageView
@@ -591,8 +532,6 @@
                 android:layout_alignParentBottom="true"
                 android:layout_toStartOf="@+id/g3pin1"
                 android:contentDescription="@string/todo"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g3pin3"
                 app:srcCompat="@drawable/signal_off" />
 
             <ImageView
@@ -602,24 +541,15 @@
                 android:layout_alignParentBottom="true"
                 android:layout_toEndOf="@+id/g3pin2"
                 android:contentDescription="@string/todo"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:srcCompat="@drawable/signal_off" />
 
 
-        </android.support.constraint.ConstraintLayout>
-
-        <android.support.constraint.ConstraintLayout
+        </RelativeLayout>
+        /*Guess 4*/
+        <RelativeLayout
             android:id="@+id/Guess_4"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            app:layout_constraintBottom_toTopOf="@+id/Guess_5"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/Result"
-            app:layout_constraintTop_toBottomOf="@+id/Guess_3">
+            android:layout_width="320dp"
+            android:layout_height="50dp">
 
             <TextView
                 android:id="@+id/g4s0"
@@ -627,20 +557,13 @@
                 android:layout_height="50dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="16"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g4s1"
-                app:layout_constraintHorizontal_bias="0.114"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/g4s1"
@@ -651,15 +574,9 @@
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="17"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g4s2"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/g4s2"
@@ -670,15 +587,9 @@
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="18"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g4s3"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/g4s3"
@@ -689,29 +600,19 @@
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="19"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/check_result4"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+                android:textSize="30sp" />
 
             <ImageView
                 android:id="@+id/check_result4"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
+                android:onClick="CheckResult"
                 android:layout_toEndOf="@+id/g4s3"
                 android:contentDescription="@string/todo"
-                android:onClick="CheckResult"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g4pin0"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@android:drawable/ic_media_rew"
-                tools:visibility="invisible" />
+                app:srcCompat="@android:drawable/ic_media_rew" />
 
             <ImageView
                 android:id="@+id/g4pin0"
@@ -720,8 +621,6 @@
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/check_result4"
                 android:contentDescription="@string/todo"
-                app:layout_constraintEnd_toStartOf="@+id/g4pin1"
-                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/signal_off" />
 
             <ImageView
@@ -731,7 +630,6 @@
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/g4pin0"
                 android:contentDescription="@string/todo"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:srcCompat="@drawable/signal_off" />
 
             <ImageView
@@ -741,8 +639,6 @@
                 android:layout_alignParentBottom="true"
                 android:layout_toStartOf="@+id/g4pin1"
                 android:contentDescription="@string/todo"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g4pin3"
                 app:srcCompat="@drawable/signal_off" />
 
             <ImageView
@@ -752,24 +648,15 @@
                 android:layout_alignParentBottom="true"
                 android:layout_toEndOf="@+id/g4pin2"
                 android:contentDescription="@string/todo"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:srcCompat="@drawable/signal_off" />
 
 
-        </android.support.constraint.ConstraintLayout>
-
-        <android.support.constraint.ConstraintLayout
+        </RelativeLayout>
+        /*Guess 5*/
+        <RelativeLayout
             android:id="@+id/Guess_5"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            app:layout_constraintBottom_toTopOf="@+id/Guess_6"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Guess_4">
+            android:layout_width="320dp"
+            android:layout_height="50dp">
 
             <TextView
                 android:id="@+id/g5s0"
@@ -777,18 +664,13 @@
                 android:layout_height="50dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="20"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g5s1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/g5s1"
@@ -799,14 +681,9 @@
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="21"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g5s2"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/g5s2"
@@ -817,14 +694,9 @@
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="22"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g5s3"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/g5s3"
@@ -835,27 +707,19 @@
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="23"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/check_result5" />
+                android:textSize="30sp" />
 
             <ImageView
                 android:id="@+id/check_result5"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:onClick="CheckResult"
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/g5s3"
                 android:contentDescription="@string/todo"
-                android:onClick="CheckResult"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g5pin0"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@android:drawable/ic_media_rew"
-                tools:visibility="invisible" />
+                app:srcCompat="@android:drawable/ic_media_rew" />
 
             <ImageView
                 android:id="@+id/g5pin0"
@@ -864,8 +728,6 @@
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/check_result5"
                 android:contentDescription="@string/todo"
-                app:layout_constraintEnd_toStartOf="@+id/g5pin1"
-                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/signal_off" />
 
             <ImageView
@@ -875,8 +737,6 @@
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/g5pin0"
                 android:contentDescription="@string/todo"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/signal_off" />
 
             <ImageView
@@ -886,8 +746,6 @@
                 android:layout_alignParentBottom="true"
                 android:layout_toStartOf="@+id/g5pin1"
                 android:contentDescription="@string/todo"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g5pin3"
                 app:srcCompat="@drawable/signal_off" />
 
             <ImageView
@@ -897,24 +755,15 @@
                 android:layout_alignParentBottom="true"
                 android:layout_toEndOf="@+id/g5pin2"
                 android:contentDescription="@string/todo"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:srcCompat="@drawable/signal_off" />
 
 
-        </android.support.constraint.ConstraintLayout>
-
-        <android.support.constraint.ConstraintLayout
+        </RelativeLayout>
+        /*Guess 6*/
+        <RelativeLayout
             android:id="@+id/Guess_6"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            app:layout_constraintBottom_toTopOf="@+id/Guess_7"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/Result"
-            app:layout_constraintTop_toBottomOf="@+id/Guess_5">
+            android:layout_width="320dp"
+            android:layout_height="50dp">
 
             <TextView
                 android:id="@+id/g6s0"
@@ -922,18 +771,13 @@
                 android:layout_height="50dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="24"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g6s1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/g6s1"
@@ -944,13 +788,9 @@
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="25"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:visibility="invisible"
-                app:layout_constraintEnd_toStartOf="@+id/g6s2"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/g6s2"
@@ -961,14 +801,9 @@
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="26"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g6s3"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/g6s3"
@@ -979,28 +814,19 @@
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="27"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/check_result6"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
             <ImageView
                 android:id="@+id/check_result6"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:onClick="CheckResult"
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/g6s3"
                 android:contentDescription="@string/todo"
-                android:onClick="CheckResult"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g6pin0"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@android:drawable/ic_media_rew"
-                tools:visibility="invisible" />
+                app:srcCompat="@android:drawable/ic_media_rew" />
 
             <ImageView
                 android:id="@+id/g6pin0"
@@ -1009,7 +835,6 @@
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/check_result6"
                 android:contentDescription="@string/todo"
-                app:layout_constraintEnd_toStartOf="@+id/g6pin1"
                 app:srcCompat="@drawable/signal_off" />
 
             <ImageView
@@ -1019,7 +844,6 @@
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/g6pin0"
                 android:contentDescription="@string/todo"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:srcCompat="@drawable/signal_off" />
 
             <ImageView
@@ -1029,8 +853,6 @@
                 android:layout_alignParentBottom="true"
                 android:layout_toStartOf="@+id/g6pin1"
                 android:contentDescription="@string/todo"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g6pin3"
                 app:srcCompat="@drawable/signal_off" />
 
             <ImageView
@@ -1040,24 +862,15 @@
                 android:layout_alignParentBottom="true"
                 android:layout_toEndOf="@+id/g6pin2"
                 android:contentDescription="@string/todo"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:srcCompat="@drawable/signal_off" />
 
 
-        </android.support.constraint.ConstraintLayout>
-
-        <android.support.constraint.ConstraintLayout
+        </RelativeLayout>
+        /*Guess 7*/
+        <RelativeLayout
             android:id="@+id/Guess_7"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            app:layout_constraintBottom_toTopOf="@+id/Guess_8"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Guess_6">
+            android:layout_width="320dp"
+            android:layout_height="50dp">
 
             <TextView
                 android:id="@+id/g7s0"
@@ -1065,17 +878,13 @@
                 android:layout_height="50dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="28"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:visibility="invisible"
-                app:layout_constraintEnd_toStartOf="@+id/g7s1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/g7s1"
@@ -1086,14 +895,9 @@
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="29"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g7s2"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/g7s2"
@@ -1104,14 +908,9 @@
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="30"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g7s3"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/g7s3"
@@ -1122,27 +921,19 @@
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="31"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/check_result7" />
+                android:textSize="30sp" />
 
             <ImageView
                 android:id="@+id/check_result7"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:onClick="CheckResult"
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/g7s3"
                 android:contentDescription="@string/todo"
-                android:onClick="CheckResult"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g7pin0"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@android:drawable/ic_media_rew"
-                tools:visibility="invisible" />
+                app:srcCompat="@android:drawable/ic_media_rew" />
 
             <ImageView
                 android:id="@+id/g7pin0"
@@ -1151,7 +942,6 @@
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/check_result7"
                 android:contentDescription="@string/todo"
-                app:layout_constraintEnd_toStartOf="@+id/g7pin1"
                 app:srcCompat="@drawable/signal_off" />
 
             <ImageView
@@ -1161,8 +951,6 @@
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/g7pin0"
                 android:contentDescription="@string/todo"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/signal_off" />
 
             <ImageView
@@ -1172,8 +960,6 @@
                 android:layout_alignParentBottom="true"
                 android:layout_toStartOf="@+id/g7pin1"
                 android:contentDescription="@string/todo"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g7pin3"
                 app:srcCompat="@drawable/signal_off" />
 
             <ImageView
@@ -1183,25 +969,15 @@
                 android:layout_alignParentBottom="true"
                 android:layout_toEndOf="@+id/g7pin2"
                 android:contentDescription="@string/todo"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:srcCompat="@drawable/signal_off" />
 
 
-        </android.support.constraint.ConstraintLayout>
-
-        <android.support.constraint.ConstraintLayout
+        </RelativeLayout>
+        /*Guess 8*/
+        <RelativeLayout
             android:id="@+id/Guess_8"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginBottom="28dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            app:layout_constraintBottom_toTopOf="@+id/Result"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/Result"
-            app:layout_constraintTop_toBottomOf="@+id/Guess_7">
+            android:layout_width="320dp"
+            android:layout_height="50dp">
 
             <TextView
                 android:id="@+id/g8s0"
@@ -1209,18 +985,13 @@
                 android:layout_height="50dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="32"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g8s1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/g8s1"
@@ -1231,14 +1002,9 @@
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="33"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g8s2"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/g8s2"
@@ -1249,14 +1015,9 @@
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="34"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g8s3"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/g8s3"
@@ -1267,28 +1028,19 @@
                 android:background="@android:drawable/checkbox_off_background"
                 android:onClick="GuessOnClick"
                 android:paddingTop="5dp"
-                android:tag="35"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/check_result8"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
             <ImageView
                 android:id="@+id/check_result8"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:onClick="CheckResult"
+                android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/g8s3"
                 android:contentDescription="@string/todo"
-                android:onClick="CheckResult"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g8pin0"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@android:drawable/ic_media_rew"
-                tools:visibility="invisible" />
+                app:srcCompat="@android:drawable/ic_media_rew" />
 
             <ImageView
                 android:id="@+id/g8pin0"
@@ -1297,8 +1049,6 @@
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/check_result8"
                 android:contentDescription="@string/todo"
-                app:layout_constraintEnd_toStartOf="@+id/g8pin1"
-                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/signal_off" />
 
             <ImageView
@@ -1308,8 +1058,6 @@
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/g8pin0"
                 android:contentDescription="@string/todo"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/signal_off" />
 
             <ImageView
@@ -1319,8 +1067,6 @@
                 android:layout_alignParentBottom="true"
                 android:layout_toStartOf="@+id/g8pin1"
                 android:contentDescription="@string/todo"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/g8pin3"
                 app:srcCompat="@drawable/signal_off" />
 
             <ImageView
@@ -1330,21 +1076,17 @@
                 android:layout_alignParentBottom="true"
                 android:layout_toEndOf="@+id/g8pin2"
                 android:contentDescription="@string/todo"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:srcCompat="@drawable/signal_off" />
 
 
-        </android.support.constraint.ConstraintLayout>
+        </RelativeLayout>
 
-        <android.support.constraint.ConstraintLayout
+        /*Result need to be guess*/
+
+        <RelativeLayout
             android:id="@+id/Result"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Guess_8">
+            android:layout_width="320dp"
+            android:layout_height="50dp">
 
             <TextView
                 android:id="@+id/r0"
@@ -1352,16 +1094,12 @@
                 android:layout_height="50dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="14dp"
-                android:background="@android:drawable/progress_indeterminate_horizontal"
+                android:layout_marginStart="10dp"
+                android:background="@android:drawable/checkbox_off_background"
                 android:paddingTop="5dp"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/r1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/r1"
@@ -1369,15 +1107,11 @@
                 android:layout_height="50dp"
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/r0"
-                android:background="@android:drawable/progress_indeterminate_horizontal"
+                android:background="@android:drawable/checkbox_off_background"
                 android:paddingTop="5dp"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/r2"
-                app:layout_constraintStart_toEndOf="@+id/r0"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/r2"
@@ -1385,223 +1119,27 @@
                 android:layout_height="50dp"
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/r1"
-                android:background="@android:drawable/progress_indeterminate_horizontal"
+                android:background="@android:drawable/checkbox_off_background"
                 android:paddingTop="5dp"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/r3"
-                app:layout_constraintStart_toEndOf="@+id/r1"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/r3"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_alignParentTop="true"
-                android:layout_marginEnd="84dp"
                 android:layout_toEndOf="@+id/r2"
-                android:background="@android:drawable/progress_indeterminate_horizontal"
+                android:background="@android:drawable/checkbox_off_background"
                 android:paddingTop="5dp"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="30sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="30sp" />
 
-        </android.support.constraint.ConstraintLayout>
+        </RelativeLayout>
 
-
-    </android.support.constraint.ConstraintLayout>
-
-
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/constraintLayout2"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:maxWidth="60dp"
-        android:minWidth="60dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/table"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
-
-        <Button
-            android:id="@+id/d9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
-            android:background="#5b5b5b"
-            android:onClick="ButtonOnClick"
-            android:text="9"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/d8"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="spread_inside" />
-
-        <Button
-            android:id="@+id/d8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:background="#5b5b5b"
-            android:onClick="ButtonOnClick"
-            android:text="8"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/d7"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/d9" />
-
-        <Button
-            android:id="@+id/d7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:background="#5b5b5b"
-            android:onClick="ButtonOnClick"
-            android:text="7"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/d6"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/d8" />
-
-        <Button
-            android:id="@+id/d6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:background="#5b5b5b"
-            android:onClick="ButtonOnClick"
-            android:text="6"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/d5"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/d7" />
-
-        <Button
-            android:id="@+id/d5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:background="#5b5b5b"
-            android:onClick="ButtonOnClick"
-            android:text="5"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/d4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/d6" />
-
-        <Button
-            android:id="@+id/d4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:background="#5b5b5b"
-            android:onClick="ButtonOnClick"
-            android:text="4"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/d3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/d5" />
-
-        <Button
-            android:id="@+id/d3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:background="#5b5b5b"
-            android:onClick="ButtonOnClick"
-            android:text="3"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/d2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/d4" />
-
-        <Button
-            android:id="@+id/d2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:background="#5b5b5b"
-            android:onClick="ButtonOnClick"
-            android:text="2"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/d1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/d3" />
-
-        <Button
-            android:id="@+id/d1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:background="#5b5b5b"
-            android:onClick="ButtonOnClick"
-            android:text="1"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/d0"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/d2" />
-
-        <Button
-            android:id="@+id/d0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:background="#5b5b5b"
-            android:onClick="ButtonOnClick"
-            android:text="0"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/d1" />
-    </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
 
 
 </android.support.constraint.ConstraintLayout>

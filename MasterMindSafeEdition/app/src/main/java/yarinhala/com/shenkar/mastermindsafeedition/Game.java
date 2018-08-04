@@ -1,7 +1,5 @@
 package yarinhala.com.shenkar.mastermindsafeedition;
 
-import android.content.Intent;
-import android.graphics.Color;
 import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,10 +12,6 @@ import android.widget.TextView;
 import java.util.Random;
 
 public class Game extends AppCompatActivity {
-    final static String SCORE = "yarinhala.com.shenkar.mastermindsafeedition.SCORE";
-    final static String WIN_OR_LOSE = "yarinhala.com.shenkar.mastermindsafeedition.WIN_OR_LOSE";
-
-
 
     private int number_picketed;
     private TextView textView_picketed;
@@ -26,142 +20,59 @@ public class Game extends AppCompatActivity {
     private TextView[] result = new TextView[4];
     private TextView[] tempGuess = new TextView[4];
     private int[] pinsStatus = new int[3];
-    private Boolean[] gameStatus = new Boolean[36];
-    private int currentSlotPlayed;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_game);
-
-        Intent intent = getIntent();
-        int level_num = intent.getIntExtra(Levels.LEVEL_VALUE,1);
-
         number_picketed = 0;
         number_str = "";
-        currentSlotPlayed = 0;
+
         Random r = new Random();
         result[0] = findViewById(R.id.r0);
         result[1] = findViewById(R.id.r1);
         result[2] = findViewById(R.id.r2);
         result[3] = findViewById(R.id.r3);
-        findViewById(R.id.d0).setBackgroundColor(Color.BLACK);
 
         for (int i = 0 ;i < 4 ; i++){
             result[i].setText(Integer.toString(r.nextInt(10)));
             /*need to hide safe code setVisibility(View.INVISIBLE);*/
         }
 
-        for (int i = 0 ; i < gameStatus.length ; i ++){
-            gameStatus[i] = false;
-        };
-        clearAllArrowsBackground();
+
     }
 
     public void ButtonOnClick(View view){
         button = (Button)view;
         number_str = button.getText().toString();
         number_picketed = Integer.parseInt(number_str);
-        clearAllButtonsBackground();
-        view.setBackgroundColor(Color.BLACK);
-    }
-
-    public void clearAllButtonsBackground(){
-        findViewById(R.id.d0).setBackgroundColor(0xff5b5b5b);
-        findViewById(R.id.d1).setBackgroundColor(0xff5b5b5b);
-        findViewById(R.id.d2).setBackgroundColor(0xff5b5b5b);
-        findViewById(R.id.d3).setBackgroundColor(0xff5b5b5b);
-        findViewById(R.id.d4).setBackgroundColor(0xff5b5b5b);
-        findViewById(R.id.d5).setBackgroundColor(0xff5b5b5b);
-        findViewById(R.id.d6).setBackgroundColor(0xff5b5b5b);
-        findViewById(R.id.d7).setBackgroundColor(0xff5b5b5b);
-        findViewById(R.id.d8).setBackgroundColor(0xff5b5b5b);
-        findViewById(R.id.d9).setBackgroundColor(0xff5b5b5b);
-    }
-
-    public void clearAllArrowsBackground(){
-        findViewById(R.id.check_result1).setVisibility(View.INVISIBLE);
-        findViewById(R.id.check_result2).setVisibility(View.INVISIBLE);
-        findViewById(R.id.check_result3).setVisibility(View.INVISIBLE);
-        findViewById(R.id.check_result4).setVisibility(View.INVISIBLE);
-        findViewById(R.id.check_result5).setVisibility(View.INVISIBLE);
-        findViewById(R.id.check_result6).setVisibility(View.INVISIBLE);
-        findViewById(R.id.check_result7).setVisibility(View.INVISIBLE);
-        findViewById(R.id.check_result8).setVisibility(View.INVISIBLE);
     }
 
     public void GuessOnClick(View view){
         textView_picketed = (TextView)view;
         textView_picketed.setText(Integer.toString(number_picketed));
-        int id = Integer.parseInt(textView_picketed.getTag().toString());
-        gameStatus[id] = true;
-        int i = currentSlotPlayed;
-
-        if(gameStatus[i] == true && gameStatus[i+1] == true && gameStatus[i+2] == true && gameStatus[i+3] == true ){
-            currentSlotPlayed+=4;
-            Log.d("MSG","currentSlotPlayed: " + currentSlotPlayed);
-
-            setVisibleOfArrow(currentSlotPlayed);
-        }
     }
 
-    public void setVisibleOfArrow(int currentSlots){
-        switch (currentSlots) {
-            case (4):
-                findViewById(R.id.check_result0).setVisibility(View.VISIBLE);
-                break;
-            case (8):
-                findViewById(R.id.check_result1).setVisibility(View.VISIBLE);
-                break;
-            case (12):
-                findViewById(R.id.check_result2).setVisibility(View.VISIBLE);
-                break;
-            case (16):
-                findViewById(R.id.check_result3).setVisibility(View.VISIBLE);
-                break;
-            case (20):
-                findViewById(R.id.check_result4).setVisibility(View.VISIBLE);
-                break;
-            case (24):
-                findViewById(R.id.check_result5).setVisibility(View.VISIBLE);
-                break;
-            case (28):
-                findViewById(R.id.check_result6).setVisibility(View.VISIBLE);
-                break;
-            case (32):
-                findViewById(R.id.check_result7).setVisibility(View.VISIBLE);
-                break;
-            case (36):
-                findViewById(R.id.check_result8).setVisibility(View.VISIBLE);
-                break;
-
-         }
-    }
 
     public void CheckResult( View v ) {
-        int if_win = 0;
         switch (v.getId()) {
             case (R.id.check_result0):
-                if_win = setResultOnPins(
+                setResultOnPins(
                         checkResultWithParams(
                                 findViewById(R.id.g0s0),findViewById(R.id.g0s1),
                                 findViewById(R.id.g0s2),findViewById(R.id.g0s3)
+
+
                         ),
                         findViewById(R.id.g0pin0),findViewById(R.id.g0pin1),
                         findViewById(R.id.g0pin2),findViewById(R.id.g0pin3)
 
                 );
                 v.setVisibility(View.INVISIBLE);
-                if(if_win == 1){win_game();}
-                findViewById(R.id.g1s0).setVisibility(View.VISIBLE);
-                findViewById(R.id.g1s1).setVisibility(View.VISIBLE);
-                findViewById(R.id.g1s2).setVisibility(View.VISIBLE);
-                findViewById(R.id.g1s3).setVisibility(View.VISIBLE);
                 break;
             case (R.id.check_result1):
 
-                if_win = setResultOnPins(
+                setResultOnPins(
                         checkResultWithParams(
                                 findViewById(R.id.g1s0),findViewById(R.id.g1s1),
                                 findViewById(R.id.g1s2),findViewById(R.id.g1s3)
@@ -171,138 +82,19 @@ public class Game extends AppCompatActivity {
 
                 );
                 v.setVisibility(View.INVISIBLE);
-                if(if_win == 1){win_game();}
-                findViewById(R.id.g2s0).setVisibility(View.VISIBLE);
-                findViewById(R.id.g2s1).setVisibility(View.VISIBLE);
-                findViewById(R.id.g2s2).setVisibility(View.VISIBLE);
-                findViewById(R.id.g2s3).setVisibility(View.VISIBLE);
                 break;
             case (R.id.check_result2):
 
-                if_win = setResultOnPins(
+                setResultOnPins(
                         checkResultWithParams(
                                 findViewById(R.id.g2s0),findViewById(R.id.g2s1),
                                 findViewById(R.id.g2s2),findViewById(R.id.g2s3)
                         ),
-                        findViewById(R.id.g2pin0),findViewById(R.id.g2pin1),
+                        findViewById(R.id.g2pin0),findViewById(R.id.g1pin1),
                         findViewById(R.id.g2pin2),findViewById(R.id.g2pin3)
 
                 );
                 v.setVisibility(View.INVISIBLE);
-                if(if_win == 1){win_game();}
-                findViewById(R.id.g3s0).setVisibility(View.VISIBLE);
-                findViewById(R.id.g3s1).setVisibility(View.VISIBLE);
-                findViewById(R.id.g3s2).setVisibility(View.VISIBLE);
-                findViewById(R.id.g3s3).setVisibility(View.VISIBLE);
-                break;
-            case (R.id.check_result3):
-
-                if_win = setResultOnPins(
-                        checkResultWithParams(
-                                findViewById(R.id.g3s0),findViewById(R.id.g3s1),
-                                findViewById(R.id.g3s2),findViewById(R.id.g3s3)
-                        ),
-                        findViewById(R.id.g3pin0),findViewById(R.id.g3pin1),
-                        findViewById(R.id.g3pin2),findViewById(R.id.g3pin3)
-
-                );
-                v.setVisibility(View.INVISIBLE);
-                if(if_win == 1){win_game();}
-                findViewById(R.id.g4s0).setVisibility(View.VISIBLE);
-                findViewById(R.id.g4s1).setVisibility(View.VISIBLE);
-                findViewById(R.id.g4s2).setVisibility(View.VISIBLE);
-                findViewById(R.id.g4s3).setVisibility(View.VISIBLE);
-                break;
-            case (R.id.check_result4):
-
-                if_win = setResultOnPins(
-                        checkResultWithParams(
-                                findViewById(R.id.g4s0),findViewById(R.id.g4s1),
-                                findViewById(R.id.g4s2),findViewById(R.id.g4s3)
-                        ),
-                        findViewById(R.id.g4pin0),findViewById(R.id.g4pin1),
-                        findViewById(R.id.g4pin2),findViewById(R.id.g4pin3)
-
-                );
-                v.setVisibility(View.INVISIBLE);
-                if(if_win == 1){win_game();}
-                findViewById(R.id.g5s0).setVisibility(View.VISIBLE);
-                findViewById(R.id.g5s1).setVisibility(View.VISIBLE);
-                findViewById(R.id.g5s2).setVisibility(View.VISIBLE);
-                findViewById(R.id.g5s3).setVisibility(View.VISIBLE);
-                break;
-            case (R.id.check_result5):
-
-                if_win = setResultOnPins(
-                        checkResultWithParams(
-                                findViewById(R.id.g5s0),findViewById(R.id.g5s1),
-                                findViewById(R.id.g5s2),findViewById(R.id.g5s3)
-                        ),
-                        findViewById(R.id.g5pin0),findViewById(R.id.g5pin1),
-                        findViewById(R.id.g5pin2),findViewById(R.id.g5pin3)
-
-                );
-                v.setVisibility(View.INVISIBLE);
-                if(if_win == 1){win_game();}
-                findViewById(R.id.g6s0).setVisibility(View.VISIBLE);
-                findViewById(R.id.g6s1).setVisibility(View.VISIBLE);
-                findViewById(R.id.g6s2).setVisibility(View.VISIBLE);
-                findViewById(R.id.g6s3).setVisibility(View.VISIBLE);
-                break;
-            case (R.id.check_result6):
-
-                if_win = setResultOnPins(
-                        checkResultWithParams(
-                                findViewById(R.id.g6s0),findViewById(R.id.g6s1),
-                                findViewById(R.id.g6s2),findViewById(R.id.g6s3)
-                        ),
-                        findViewById(R.id.g6pin0),findViewById(R.id.g6pin1),
-                        findViewById(R.id.g6pin2),findViewById(R.id.g6pin3)
-
-                );
-                v.setVisibility(View.INVISIBLE);
-                if(if_win == 1){win_game();}
-                findViewById(R.id.g7s0).setVisibility(View.VISIBLE);
-                findViewById(R.id.g7s1).setVisibility(View.VISIBLE);
-                findViewById(R.id.g7s2).setVisibility(View.VISIBLE);
-                findViewById(R.id.g7s3).setVisibility(View.VISIBLE);
-                break;
-            case (R.id.check_result7):
-
-                if_win = setResultOnPins(
-                        checkResultWithParams(
-                                findViewById(R.id.g7s0),findViewById(R.id.g7s1),
-                                findViewById(R.id.g7s2),findViewById(R.id.g7s3)
-                        ),
-                        findViewById(R.id.g7pin0),findViewById(R.id.g7pin1),
-                        findViewById(R.id.g7pin2),findViewById(R.id.g7pin3)
-
-                );
-                v.setVisibility(View.INVISIBLE);
-                if(if_win == 1){win_game();}
-                findViewById(R.id.g8s0).setVisibility(View.VISIBLE);
-                findViewById(R.id.g8s1).setVisibility(View.VISIBLE);
-                findViewById(R.id.g8s2).setVisibility(View.VISIBLE);
-                findViewById(R.id.g8s3).setVisibility(View.VISIBLE);
-                break;
-            case (R.id.check_result8):
-
-                if_win = setResultOnPins(
-                        checkResultWithParams(
-                                findViewById(R.id.g8s0),findViewById(R.id.g8s1),
-                                findViewById(R.id.g8s2),findViewById(R.id.g8s3)
-                        ),
-                        findViewById(R.id.g8pin0),findViewById(R.id.g8pin1),
-                        findViewById(R.id.g8pin2),findViewById(R.id.g8pin3)
-
-                );
-                v.setVisibility(View.INVISIBLE);
-                if(if_win == 1){
-                    win_game();
-                }
-                else{
-                    lose_game();
-                }
                 break;
 
         }
@@ -391,33 +183,8 @@ public class Game extends AppCompatActivity {
         Log.d("MSG","/******************************************/");
 
 
-        if(result_pins[0] == 4){
-            return 1;
-        }
 
-        return 0;
-    }
 
-    public void win_game(){
-        showResult();
-        int score =1;
-        String string = "";
-        Intent intent = new Intent();
-        intent.putExtra(SCORE,score);
-        intent.putExtra(WIN_OR_LOSE,string);
-        startActivity(intent);
-    }
-
-    public void lose_game(){
-        showResult();
-
-    }
-
-    public  void showResult(){
-        findViewById(R.id.r0).setVisibility(View.VISIBLE);
-        findViewById(R.id.r1).setVisibility(View.VISIBLE);
-        findViewById(R.id.r2).setVisibility(View.VISIBLE);
-        findViewById(R.id.r3).setVisibility(View.VISIBLE);
+        return 1;
     }
 }
-
