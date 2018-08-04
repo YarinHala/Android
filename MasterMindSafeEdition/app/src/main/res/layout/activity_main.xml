@@ -7,13 +7,13 @@
     tools:context=".MainActivity">
 
 
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="272dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="64dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,37 +23,52 @@
         <Button
             android:id="@+id/start_game"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="64dp"
+            android:layout_marginTop="8dp"
             android:onClick="onStartGame"
-            android:text="Start Game" />
+            android:text="Start Game"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/start_game_time"
+            android:id="@+id/scores_table"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onStartGameOnTime"
-            android:text="Start Game On Time" />
+            android:layout_height="64dp"
+            android:layout_marginTop="7dp"
+            android:text="Score Table"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/start_game" />
 
         <Button
-            android:id="@+id/high_score"
+            android:id="@+id/options"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onHighScoresClick"
-            android:text="title_high_scores" />
+            android:layout_height="64dp"
+            android:layout_marginTop="8dp"
+            android:text="title_high_scores"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/scores_table" />
 
         <Button
             android:id="@+id/instructions"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="inInstructionsClick"
-            android:text="instructions" />
+            android:layout_height="64dp"
+            android:layout_marginTop="8dp"
+            android:text="Instructions"
+            app:layout_constraintTop_toBottomOf="@+id/options" />
 
         <Button
-            android:id="@+id/newTimedGame"
+            android:id="@+id/exit"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onExit"
-            android:text="Exit" />
-    </LinearLayout>
+            android:layout_height="64dp"
+            android:layout_marginTop="8dp"
+            android:text="Exit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/instructions" />
+
+    </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>

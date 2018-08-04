@@ -28,6 +28,7 @@ public class Game extends AppCompatActivity {
     private int[] pinsStatus = new int[3];
     private Boolean[] gameStatus = new Boolean[36];
     private int currentSlotPlayed;
+    private int levelNumber = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +48,7 @@ public class Game extends AppCompatActivity {
         result[2] = findViewById(R.id.r2);
         result[3] = findViewById(R.id.r3);
         findViewById(R.id.d0).setBackgroundColor(Color.BLACK);
-
+        levelNumber = level_num;
         for (int i = 0 ;i < 4 ; i++){
             result[i].setText(Integer.toString(r.nextInt(10)));
             /*need to hide safe code setVisibility(View.INVISIBLE);*/
@@ -55,8 +56,8 @@ public class Game extends AppCompatActivity {
 
         for (int i = 0 ; i < gameStatus.length ; i ++){
             gameStatus[i] = false;
-        };
-        clearAllArrowsBackground();
+        }
+        clearAllArrowsBackground(level_num);
     }
 
     public void ButtonOnClick(View view){
@@ -80,7 +81,7 @@ public class Game extends AppCompatActivity {
         findViewById(R.id.d9).setBackgroundColor(0xff5b5b5b);
     }
 
-    public void clearAllArrowsBackground(){
+    public void clearAllArrowsBackground(int whichLevelPicked){
         findViewById(R.id.check_result1).setVisibility(View.INVISIBLE);
         findViewById(R.id.check_result2).setVisibility(View.INVISIBLE);
         findViewById(R.id.check_result3).setVisibility(View.INVISIBLE);
@@ -89,6 +90,19 @@ public class Game extends AppCompatActivity {
         findViewById(R.id.check_result6).setVisibility(View.INVISIBLE);
         findViewById(R.id.check_result7).setVisibility(View.INVISIBLE);
         findViewById(R.id.check_result8).setVisibility(View.INVISIBLE);
+
+        if(whichLevelPicked > 1){
+            findViewById(R.id.Guess_8).setVisibility(View.INVISIBLE);
+        }
+        if(whichLevelPicked > 2){
+            findViewById(R.id.Guess_7).setVisibility(View.INVISIBLE);
+        }
+        if(whichLevelPicked > 3){
+            findViewById(R.id.Guess_6).setVisibility(View.INVISIBLE);
+        }
+        if(whichLevelPicked > 4){
+            findViewById(R.id.Guess_5).setVisibility(View.INVISIBLE);
+        }
     }
 
     public void GuessOnClick(View view){
@@ -153,14 +167,12 @@ public class Game extends AppCompatActivity {
 
                 );
                 v.setVisibility(View.INVISIBLE);
-                if(if_win == 1){win_game();}
                 findViewById(R.id.g1s0).setVisibility(View.VISIBLE);
                 findViewById(R.id.g1s1).setVisibility(View.VISIBLE);
                 findViewById(R.id.g1s2).setVisibility(View.VISIBLE);
                 findViewById(R.id.g1s3).setVisibility(View.VISIBLE);
                 break;
             case (R.id.check_result1):
-
                 if_win = setResultOnPins(
                         checkResultWithParams(
                                 findViewById(R.id.g1s0),findViewById(R.id.g1s1),
@@ -171,7 +183,6 @@ public class Game extends AppCompatActivity {
 
                 );
                 v.setVisibility(View.INVISIBLE);
-                if(if_win == 1){win_game();}
                 findViewById(R.id.g2s0).setVisibility(View.VISIBLE);
                 findViewById(R.id.g2s1).setVisibility(View.VISIBLE);
                 findViewById(R.id.g2s2).setVisibility(View.VISIBLE);
@@ -189,7 +200,6 @@ public class Game extends AppCompatActivity {
 
                 );
                 v.setVisibility(View.INVISIBLE);
-                if(if_win == 1){win_game();}
                 findViewById(R.id.g3s0).setVisibility(View.VISIBLE);
                 findViewById(R.id.g3s1).setVisibility(View.VISIBLE);
                 findViewById(R.id.g3s2).setVisibility(View.VISIBLE);
@@ -207,11 +217,11 @@ public class Game extends AppCompatActivity {
 
                 );
                 v.setVisibility(View.INVISIBLE);
-                if(if_win == 1){win_game();}
                 findViewById(R.id.g4s0).setVisibility(View.VISIBLE);
                 findViewById(R.id.g4s1).setVisibility(View.VISIBLE);
                 findViewById(R.id.g4s2).setVisibility(View.VISIBLE);
                 findViewById(R.id.g4s3).setVisibility(View.VISIBLE);
+                checkLevelContinuation();
                 break;
             case (R.id.check_result4):
 
@@ -225,11 +235,11 @@ public class Game extends AppCompatActivity {
 
                 );
                 v.setVisibility(View.INVISIBLE);
-                if(if_win == 1){win_game();}
                 findViewById(R.id.g5s0).setVisibility(View.VISIBLE);
                 findViewById(R.id.g5s1).setVisibility(View.VISIBLE);
                 findViewById(R.id.g5s2).setVisibility(View.VISIBLE);
                 findViewById(R.id.g5s3).setVisibility(View.VISIBLE);
+                checkLevelContinuation();
                 break;
             case (R.id.check_result5):
 
@@ -243,11 +253,11 @@ public class Game extends AppCompatActivity {
 
                 );
                 v.setVisibility(View.INVISIBLE);
-                if(if_win == 1){win_game();}
                 findViewById(R.id.g6s0).setVisibility(View.VISIBLE);
                 findViewById(R.id.g6s1).setVisibility(View.VISIBLE);
                 findViewById(R.id.g6s2).setVisibility(View.VISIBLE);
                 findViewById(R.id.g6s3).setVisibility(View.VISIBLE);
+                checkLevelContinuation();
                 break;
             case (R.id.check_result6):
 
@@ -261,11 +271,11 @@ public class Game extends AppCompatActivity {
 
                 );
                 v.setVisibility(View.INVISIBLE);
-                if(if_win == 1){win_game();}
                 findViewById(R.id.g7s0).setVisibility(View.VISIBLE);
                 findViewById(R.id.g7s1).setVisibility(View.VISIBLE);
                 findViewById(R.id.g7s2).setVisibility(View.VISIBLE);
                 findViewById(R.id.g7s3).setVisibility(View.VISIBLE);
+                checkLevelContinuation();
                 break;
             case (R.id.check_result7):
 
@@ -279,11 +289,11 @@ public class Game extends AppCompatActivity {
 
                 );
                 v.setVisibility(View.INVISIBLE);
-                if(if_win == 1){win_game();}
                 findViewById(R.id.g8s0).setVisibility(View.VISIBLE);
                 findViewById(R.id.g8s1).setVisibility(View.VISIBLE);
                 findViewById(R.id.g8s2).setVisibility(View.VISIBLE);
                 findViewById(R.id.g8s3).setVisibility(View.VISIBLE);
+                checkLevelContinuation();
                 break;
             case (R.id.check_result8):
 
@@ -294,17 +304,17 @@ public class Game extends AppCompatActivity {
                         ),
                         findViewById(R.id.g8pin0),findViewById(R.id.g8pin1),
                         findViewById(R.id.g8pin2),findViewById(R.id.g8pin3)
-
                 );
                 v.setVisibility(View.INVISIBLE);
-                if(if_win == 1){
-                    win_game();
-                }
-                else{
-                    lose_game();
-                }
+
                 break;
 
+        }
+        if(if_win == 1){
+            win_game();
+        }
+        else{
+            lose_game();
         }
     }
 
@@ -398,10 +408,19 @@ public class Game extends AppCompatActivity {
         return 0;
     }
 
+    /*if reach to lvl limit end game*/
+    public void checkLevelContinuation(){
+
+        if(levelNumber > 0){}
+
+    }
+
+
+
     public void win_game(){
         showResult();
         int score =1;
-        String string = "";
+        String string = "you win";
         Intent intent = new Intent();
         intent.putExtra(SCORE,score);
         intent.putExtra(WIN_OR_LOSE,string);
@@ -410,6 +429,12 @@ public class Game extends AppCompatActivity {
 
     public void lose_game(){
         showResult();
+        int score =1;
+        String string = "you lose";
+        Intent intent = new Intent();
+        intent.putExtra(SCORE,score);
+        intent.putExtra(WIN_OR_LOSE,string);
+        startActivity(intent);
 
     }
 
@@ -419,5 +444,9 @@ public class Game extends AppCompatActivity {
         findViewById(R.id.r2).setVisibility(View.VISIBLE);
         findViewById(R.id.r3).setVisibility(View.VISIBLE);
     }
+
+
+
+
 }
 
