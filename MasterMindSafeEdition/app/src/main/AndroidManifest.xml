@@ -26,6 +26,6 @@
         <activity android:name=".Game" android:screenOrientation="portrait"></activity>
         <activity android:name="Instructions" android:screenOrientation="portrait"></activity>
         <activity android:name=".Options" android:screenOrientation="portrait"></activity>
-        <activity android:name=".PopUp" android:screenOrientation="portrait" android:theme="@style/AppTheme.pop"></activity>
+        <activity android:name=".PopUp" android:theme="@style/AppTheme.pop"></activity>
     </application>
 </manifest>

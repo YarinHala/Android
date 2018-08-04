@@ -14,8 +14,10 @@ import android.widget.TextView;
 import java.util.Random;
 
 public class Game extends AppCompatActivity {
+    final static String LEVEL = "yarinhala.com.shenkar.mastermindsafeedition.LEVEL";
     final static String SCORE = "yarinhala.com.shenkar.mastermindsafeedition.SCORE";
     final static String WIN_OR_LOSE = "yarinhala.com.shenkar.mastermindsafeedition.WIN_OR_LOSE";
+
 
 
 
@@ -155,167 +157,48 @@ public class Game extends AppCompatActivity {
 
     public void CheckResult( View v ) {
         int if_win = 0;
+        int which_lvl = 0;
         switch (v.getId()) {
             case (R.id.check_result0):
-                if_win = setResultOnPins(
-                        checkResultWithParams(
-                                findViewById(R.id.g0s0),findViewById(R.id.g0s1),
-                                findViewById(R.id.g0s2),findViewById(R.id.g0s3)
-                        ),
-                        findViewById(R.id.g0pin0),findViewById(R.id.g0pin1),
-                        findViewById(R.id.g0pin2),findViewById(R.id.g0pin3)
-
-                );
-                v.setVisibility(View.INVISIBLE);
-                findViewById(R.id.g1s0).setVisibility(View.VISIBLE);
-                findViewById(R.id.g1s1).setVisibility(View.VISIBLE);
-                findViewById(R.id.g1s2).setVisibility(View.VISIBLE);
-                findViewById(R.id.g1s3).setVisibility(View.VISIBLE);
+                which_lvl = 0;
+                if_win = setResultOnPins(checkResultWithParams(findViewById(R.id.g0s0),findViewById(R.id.g0s1),findViewById(R.id.g0s2),findViewById(R.id.g0s3)), findViewById(R.id.g0pin0),findViewById(R.id.g0pin1),findViewById(R.id.g0pin2),findViewById(R.id.g0pin3));v.setVisibility(View.INVISIBLE); findViewById(R.id.g1s0).setVisibility(View.VISIBLE);findViewById(R.id.g1s1).setVisibility(View.VISIBLE);findViewById(R.id.g1s2).setVisibility(View.VISIBLE);findViewById(R.id.g1s3).setVisibility(View.VISIBLE);
                 break;
             case (R.id.check_result1):
-                if_win = setResultOnPins(
-                        checkResultWithParams(
-                                findViewById(R.id.g1s0),findViewById(R.id.g1s1),
-                                findViewById(R.id.g1s2),findViewById(R.id.g1s3)
-                        ),
-                        findViewById(R.id.g1pin0),findViewById(R.id.g1pin1),
-                        findViewById(R.id.g1pin2),findViewById(R.id.g1pin3)
-
-                );
-                v.setVisibility(View.INVISIBLE);
-                findViewById(R.id.g2s0).setVisibility(View.VISIBLE);
-                findViewById(R.id.g2s1).setVisibility(View.VISIBLE);
-                findViewById(R.id.g2s2).setVisibility(View.VISIBLE);
-                findViewById(R.id.g2s3).setVisibility(View.VISIBLE);
+                which_lvl = 1;
+                if_win = setResultOnPins(checkResultWithParams( findViewById(R.id.g1s0),findViewById(R.id.g1s1),findViewById(R.id.g1s2),findViewById(R.id.g1s3)),findViewById(R.id.g1pin0),findViewById(R.id.g1pin1), findViewById(R.id.g1pin2),findViewById(R.id.g1pin3) );v.setVisibility(View.INVISIBLE);findViewById(R.id.g2s0).setVisibility(View.VISIBLE);findViewById(R.id.g2s1).setVisibility(View.VISIBLE);findViewById(R.id.g2s2).setVisibility(View.VISIBLE);findViewById(R.id.g2s3).setVisibility(View.VISIBLE);
                 break;
             case (R.id.check_result2):
-
-                if_win = setResultOnPins(
-                        checkResultWithParams(
-                                findViewById(R.id.g2s0),findViewById(R.id.g2s1),
-                                findViewById(R.id.g2s2),findViewById(R.id.g2s3)
-                        ),
-                        findViewById(R.id.g2pin0),findViewById(R.id.g2pin1),
-                        findViewById(R.id.g2pin2),findViewById(R.id.g2pin3)
-
-                );
-                v.setVisibility(View.INVISIBLE);
-                findViewById(R.id.g3s0).setVisibility(View.VISIBLE);
-                findViewById(R.id.g3s1).setVisibility(View.VISIBLE);
-                findViewById(R.id.g3s2).setVisibility(View.VISIBLE);
-                findViewById(R.id.g3s3).setVisibility(View.VISIBLE);
+                which_lvl = 2;
+                if_win = setResultOnPins(checkResultWithParams(findViewById(R.id.g2s0),findViewById(R.id.g2s1),findViewById(R.id.g2s2),findViewById(R.id.g2s3)),findViewById(R.id.g2pin0),findViewById(R.id.g2pin1), findViewById(R.id.g2pin2),findViewById(R.id.g2pin3)); v.setVisibility(View.INVISIBLE);findViewById(R.id.g3s0).setVisibility(View.VISIBLE);findViewById(R.id.g3s1).setVisibility(View.VISIBLE);findViewById(R.id.g3s2).setVisibility(View.VISIBLE);findViewById(R.id.g3s3).setVisibility(View.VISIBLE);
                 break;
             case (R.id.check_result3):
-
-                if_win = setResultOnPins(
-                        checkResultWithParams(
-                                findViewById(R.id.g3s0),findViewById(R.id.g3s1),
-                                findViewById(R.id.g3s2),findViewById(R.id.g3s3)
-                        ),
-                        findViewById(R.id.g3pin0),findViewById(R.id.g3pin1),
-                        findViewById(R.id.g3pin2),findViewById(R.id.g3pin3)
-
-                );
-                v.setVisibility(View.INVISIBLE);
-                findViewById(R.id.g4s0).setVisibility(View.VISIBLE);
-                findViewById(R.id.g4s1).setVisibility(View.VISIBLE);
-                findViewById(R.id.g4s2).setVisibility(View.VISIBLE);
-                findViewById(R.id.g4s3).setVisibility(View.VISIBLE);
-                checkLevelContinuation();
+                which_lvl = 3;
+                if_win = setResultOnPins(checkResultWithParams(findViewById(R.id.g3s0),findViewById(R.id.g3s1), findViewById(R.id.g3s2),findViewById(R.id.g3s3)),findViewById(R.id.g3pin0),findViewById(R.id.g3pin1),findViewById(R.id.g3pin2),findViewById(R.id.g3pin3));v.setVisibility(View.INVISIBLE);findViewById(R.id.g4s0).setVisibility(View.VISIBLE);findViewById(R.id.g4s1).setVisibility(View.VISIBLE);findViewById(R.id.g4s2).setVisibility(View.VISIBLE);findViewById(R.id.g4s3).setVisibility(View.VISIBLE);
                 break;
             case (R.id.check_result4):
-
-                if_win = setResultOnPins(
-                        checkResultWithParams(
-                                findViewById(R.id.g4s0),findViewById(R.id.g4s1),
-                                findViewById(R.id.g4s2),findViewById(R.id.g4s3)
-                        ),
-                        findViewById(R.id.g4pin0),findViewById(R.id.g4pin1),
-                        findViewById(R.id.g4pin2),findViewById(R.id.g4pin3)
-
-                );
-                v.setVisibility(View.INVISIBLE);
-                findViewById(R.id.g5s0).setVisibility(View.VISIBLE);
-                findViewById(R.id.g5s1).setVisibility(View.VISIBLE);
-                findViewById(R.id.g5s2).setVisibility(View.VISIBLE);
-                findViewById(R.id.g5s3).setVisibility(View.VISIBLE);
-                checkLevelContinuation();
+                which_lvl = 4;
+                if_win = setResultOnPins(checkResultWithParams(findViewById(R.id.g4s0),findViewById(R.id.g4s1),findViewById(R.id.g4s2),findViewById(R.id.g4s3)),findViewById(R.id.g4pin0),findViewById(R.id.g4pin1),findViewById(R.id.g4pin2),findViewById(R.id.g4pin3) );v.setVisibility(View.INVISIBLE);findViewById(R.id.g5s0).setVisibility(View.VISIBLE);findViewById(R.id.g5s1).setVisibility(View.VISIBLE);findViewById(R.id.g5s2).setVisibility(View.VISIBLE);findViewById(R.id.g5s3).setVisibility(View.VISIBLE);
                 break;
             case (R.id.check_result5):
-
-                if_win = setResultOnPins(
-                        checkResultWithParams(
-                                findViewById(R.id.g5s0),findViewById(R.id.g5s1),
-                                findViewById(R.id.g5s2),findViewById(R.id.g5s3)
-                        ),
-                        findViewById(R.id.g5pin0),findViewById(R.id.g5pin1),
-                        findViewById(R.id.g5pin2),findViewById(R.id.g5pin3)
-
-                );
-                v.setVisibility(View.INVISIBLE);
-                findViewById(R.id.g6s0).setVisibility(View.VISIBLE);
-                findViewById(R.id.g6s1).setVisibility(View.VISIBLE);
-                findViewById(R.id.g6s2).setVisibility(View.VISIBLE);
-                findViewById(R.id.g6s3).setVisibility(View.VISIBLE);
-                checkLevelContinuation();
+                which_lvl = 5;
+                if_win = setResultOnPins(checkResultWithParams(findViewById(R.id.g5s0),findViewById(R.id.g5s1),findViewById(R.id.g5s2),findViewById(R.id.g5s3)),findViewById(R.id.g5pin0),findViewById(R.id.g5pin1),findViewById(R.id.g5pin2),findViewById(R.id.g5pin3));v.setVisibility(View.INVISIBLE);findViewById(R.id.g6s0).setVisibility(View.VISIBLE);findViewById(R.id.g6s1).setVisibility(View.VISIBLE);findViewById(R.id.g6s2).setVisibility(View.VISIBLE);findViewById(R.id.g6s3).setVisibility(View.VISIBLE);
                 break;
             case (R.id.check_result6):
-
-                if_win = setResultOnPins(
-                        checkResultWithParams(
-                                findViewById(R.id.g6s0),findViewById(R.id.g6s1),
-                                findViewById(R.id.g6s2),findViewById(R.id.g6s3)
-                        ),
-                        findViewById(R.id.g6pin0),findViewById(R.id.g6pin1),
-                        findViewById(R.id.g6pin2),findViewById(R.id.g6pin3)
-
-                );
-                v.setVisibility(View.INVISIBLE);
-                findViewById(R.id.g7s0).setVisibility(View.VISIBLE);
-                findViewById(R.id.g7s1).setVisibility(View.VISIBLE);
-                findViewById(R.id.g7s2).setVisibility(View.VISIBLE);
-                findViewById(R.id.g7s3).setVisibility(View.VISIBLE);
-                checkLevelContinuation();
+                which_lvl = 6;
+                if_win = setResultOnPins(checkResultWithParams(findViewById(R.id.g6s0),findViewById(R.id.g6s1),findViewById(R.id.g6s2),findViewById(R.id.g6s3)), findViewById(R.id.g6pin0),findViewById(R.id.g6pin1),findViewById(R.id.g6pin2),findViewById(R.id.g6pin3));v.setVisibility(View.INVISIBLE);findViewById(R.id.g7s0).setVisibility(View.VISIBLE);findViewById(R.id.g7s1).setVisibility(View.VISIBLE);findViewById(R.id.g7s2).setVisibility(View.VISIBLE); findViewById(R.id.g7s3).setVisibility(View.VISIBLE);
                 break;
             case (R.id.check_result7):
-
-                if_win = setResultOnPins(
-                        checkResultWithParams(
-                                findViewById(R.id.g7s0),findViewById(R.id.g7s1),
-                                findViewById(R.id.g7s2),findViewById(R.id.g7s3)
-                        ),
-                        findViewById(R.id.g7pin0),findViewById(R.id.g7pin1),
-                        findViewById(R.id.g7pin2),findViewById(R.id.g7pin3)
-
-                );
-                v.setVisibility(View.INVISIBLE);
-                findViewById(R.id.g8s0).setVisibility(View.VISIBLE);
-                findViewById(R.id.g8s1).setVisibility(View.VISIBLE);
-                findViewById(R.id.g8s2).setVisibility(View.VISIBLE);
-                findViewById(R.id.g8s3).setVisibility(View.VISIBLE);
-                checkLevelContinuation();
+                which_lvl = 7;
+                if_win = setResultOnPins(checkResultWithParams(findViewById(R.id.g7s0),findViewById(R.id.g7s1),findViewById(R.id.g7s2),findViewById(R.id.g7s3)),findViewById(R.id.g7pin0),findViewById(R.id.g7pin1),findViewById(R.id.g7pin2),findViewById(R.id.g7pin3));v.setVisibility(View.INVISIBLE);findViewById(R.id.g8s0).setVisibility(View.VISIBLE);findViewById(R.id.g8s1).setVisibility(View.VISIBLE);findViewById(R.id.g8s2).setVisibility(View.VISIBLE);findViewById(R.id.g8s3).setVisibility(View.VISIBLE);
                 break;
             case (R.id.check_result8):
-
-                if_win = setResultOnPins(
-                        checkResultWithParams(
-                                findViewById(R.id.g8s0),findViewById(R.id.g8s1),
-                                findViewById(R.id.g8s2),findViewById(R.id.g8s3)
-                        ),
-                        findViewById(R.id.g8pin0),findViewById(R.id.g8pin1),
-                        findViewById(R.id.g8pin2),findViewById(R.id.g8pin3)
-                );
-                v.setVisibility(View.INVISIBLE);
-
+                which_lvl = 8;
+                if_win = setResultOnPins(checkResultWithParams(findViewById(R.id.g8s0),findViewById(R.id.g8s1),findViewById(R.id.g8s2),findViewById(R.id.g8s3)),findViewById(R.id.g8pin0),findViewById(R.id.g8pin1),findViewById(R.id.g8pin2),findViewById(R.id.g8pin3));v.setVisibility(View.INVISIBLE);
                 break;
+        }
+        checkLevelContinuation(if_win,which_lvl);
 
-        }
-        if(if_win == 1){
-            win_game();
-        }
-        else{
-            lose_game();
-        }
+
     }
 
     public int[] checkResultWithParams(View v0,View v1 ,View v2 , View v3){
@@ -369,6 +252,7 @@ public class Game extends AppCompatActivity {
 
     public int setResultOnPins(int[] result_pins,View v0,View v1 ,View v2 , View v3){
 
+        int temp_result = result_pins[0];
         ImageView[] pin_img = new ImageView[4];
         pin_img[0] =  (ImageView)v0;
         pin_img[1] =  (ImageView)v1;
@@ -401,42 +285,56 @@ public class Game extends AppCompatActivity {
         Log.d("MSG","/******************************************/");
 
 
-        if(result_pins[0] == 4){
+        if(temp_result == 4){
             return 1;
         }
 
         return 0;
     }
 
-    /*if reach to lvl limit end game*/
-    public void checkLevelContinuation(){
+    /*if reach to lvl limit end game or check win*/
+    public void checkLevelContinuation(int ifWin,int whichLevel){
+        Log.d("MSG","/******************************************/");
+        Log.d("MSG","win or lose = " + ifWin);
+        Log.d("MSG","/******************************************/");
 
-        if(levelNumber > 0){}
+        if(levelNumber == 1){
+            if( ifWin == 0 && whichLevel == 8){endGameSession(0);}
+        }
 
+        if(levelNumber == 2){
+            if( ifWin == 0 && whichLevel == 7){endGameSession(0);}
+        }
+
+        if(levelNumber == 3){
+            if( ifWin == 0 && whichLevel == 6){endGameSession(0);}
+        }
+
+        if(levelNumber == 4) {
+            if (ifWin == 0 && whichLevel == 5) {endGameSession(0);}
+        }
+        if(levelNumber == 5){
+            if( ifWin == 0 && whichLevel == 4){endGameSession(0);}
+        }
+
+        else if(ifWin == 1){
+            endGameSession(1);
+        }
+        else{
+            return;
+        }
     }
 
-
-
-    public void win_game(){
+    public void endGameSession(int winOrLose){
         showResult();
         int score =1;
-        String string = "you win";
-        Intent intent = new Intent();
+        Intent intent = new Intent(this,PopUp.class);
+        intent.putExtra(LEVEL,levelNumber);
         intent.putExtra(SCORE,score);
-        intent.putExtra(WIN_OR_LOSE,string);
+        intent.putExtra(WIN_OR_LOSE,winOrLose);
         startActivity(intent);
     }
 
-    public void lose_game(){
-        showResult();
-        int score =1;
-        String string = "you lose";
-        Intent intent = new Intent();
-        intent.putExtra(SCORE,score);
-        intent.putExtra(WIN_OR_LOSE,string);
-        startActivity(intent);
-
-    }
 
     public  void showResult(){
         findViewById(R.id.r0).setVisibility(View.VISIBLE);

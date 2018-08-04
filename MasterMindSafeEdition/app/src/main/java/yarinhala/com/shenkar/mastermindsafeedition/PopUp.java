@@ -6,8 +6,13 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class PopUp extends AppCompatActivity {
+    final static String LEVEL_VALUE = "yarinhala.com.shenkar.mastermindsafeedition.LEVEL_VALUE";
+    private int level,score,status;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -22,23 +27,31 @@ public class PopUp extends AppCompatActivity {
         getWindow().setLayout((int) (width * 0.75), (int) (height * 0.75));
 
 
+        Intent intent = getIntent();
+        status = intent.getIntExtra(Game.WIN_OR_LOSE,2);
+        score = intent.getIntExtra(Game.SCORE,1);
+        level = intent.getIntExtra(Game.SCORE,1);
+
+        EditText statusView = findViewById(R.id.statusView);
+        EditText scoreView = findViewById(R.id.scoreNumView);
+
+        if(status == 0) {
+            statusView.setText("Try Again");
+        }else{
+            statusView.setText("Congratulations!");
+        }
+        scoreView.setText(score);
     }
 
-    protected void whereToContinue(View view) {
-        /*
-        int level = Integer.parseInt(view.getTag().toString());
+    public void backToMenuMain(){
+        startActivity(new Intent(this,MainActivity.class));
+    }
 
-        if(level < 6 && level > 0){
-            Intent intent = new Intent(this,Game.class);
-            intent.putExtra(LEVEL_VALUE,level);
-            startActivity(intent);
-        }
-        else {
-            Intent intent = new Intent(this, Game.class);
-            intent.putExtra(LEVEL_VALUE, 1);
-            startActivity(intent);
-        }
-        */
+    public void continueToNextLevel(){
+        Intent intent = new Intent(this,Game.class);
+        if(level == 5){backToMenuMain();}
+        intent.putExtra(LEVEL_VALUE,level+1);
+        startActivity(intent);
     }
 
 }
