@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
+    //private   MediaPlayer backgroundsong;
+    //private   MediaPlayer buttonEffect;
+    private  MusicManager musicManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,10 +19,6 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
 
-        final MediaPlayer beckgroundsong;
-        final MediaPlayer buttonEffect;
-        AudioManager amanger;
-        int currentvol;
 
         Button levels_btn = findViewById(R.id.start_game);
         Button scores_btn = findViewById(R.id.scores_table);
@@ -27,19 +26,14 @@ public class MainActivity extends AppCompatActivity {
         Button options_btn = findViewById(R.id.options);
         Button exit_btn = findViewById(R.id.exit);
 
-        beckgroundsong = MediaPlayer.create(this, R.raw.launchapp);
-        beckgroundsong.setLooping(true);
-        beckgroundsong.start();
-
-        buttonEffect = MediaPlayer.create(this, R.raw.buttoneffect);
+        musicManager = MusicManager.getMusicManager(this);
+        musicManager.startMusic();
 
 
         levels_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                beckgroundsong.pause();
-                buttonEffect.start();
-                beckgroundsong.start();
+                musicManager.buttonClick();
                 startActivity(new Intent(MainActivity.this, Levels.class));
             }
         });
@@ -47,9 +41,7 @@ public class MainActivity extends AppCompatActivity {
         scores_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                beckgroundsong.pause();
-                buttonEffect.start();
-                beckgroundsong.start();
+                musicManager.buttonClick();
                 startActivity(new Intent(MainActivity.this, Scores.class));
             }
         });
@@ -57,9 +49,7 @@ public class MainActivity extends AppCompatActivity {
         instructions_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                beckgroundsong.pause();
-                buttonEffect.start();
-                beckgroundsong.start();
+                musicManager.buttonClick();
                 startActivity(new Intent(MainActivity.this, Instructions.class));
             }
         });
@@ -67,9 +57,7 @@ public class MainActivity extends AppCompatActivity {
         options_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                beckgroundsong.pause();
-                buttonEffect.start();
-                beckgroundsong.start();
+                musicManager.buttonClick();
                 startActivity(new Intent(MainActivity.this, Options.class));
             }
         });
@@ -77,12 +65,22 @@ public class MainActivity extends AppCompatActivity {
         exit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                beckgroundsong.pause();
-                buttonEffect.start();
+                musicManager.buttonClick();
+                musicManager.stopMusic();
+
                 finish();
                 System.exit(0);
             }
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        //backgroundsong.stop();
+        musicManager.buttonClick();
+        musicManager.stopMusic();
+        finish();
+        System.exit(0);
+    }
 }

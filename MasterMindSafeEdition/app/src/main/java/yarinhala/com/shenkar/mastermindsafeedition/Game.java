@@ -2,6 +2,7 @@ package yarinhala.com.shenkar.mastermindsafeedition;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,15 +13,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Random;
+import java.util.logging.Level;
 
 public class Game extends AppCompatActivity {
     final static String LEVEL = "yarinhala.com.shenkar.mastermindsafeedition.LEVEL";
     final static String SCORE = "yarinhala.com.shenkar.mastermindsafeedition.SCORE";
     final static String WIN_OR_LOSE = "yarinhala.com.shenkar.mastermindsafeedition.WIN_OR_LOSE";
 
-
-
-
+    private MediaPlayer buttonEffect = null ;
     private int number_picketed;
     private TextView textView_picketed;
     private String number_str;
@@ -31,6 +31,7 @@ public class Game extends AppCompatActivity {
     private Boolean[] gameStatus = new Boolean[36];
     private int currentSlotPlayed;
     private int levelNumber = 0;
+    private int score = 9000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +41,7 @@ public class Game extends AppCompatActivity {
 
         Intent intent = getIntent();
         int level_num = intent.getIntExtra(Levels.LEVEL_VALUE,1);
-
+        buttonEffect = MediaPlayer.create(this, R.raw.buttoneffect);
         number_picketed = 0;
         number_str = "";
         currentSlotPlayed = 0;
@@ -51,6 +52,8 @@ public class Game extends AppCompatActivity {
         result[3] = findViewById(R.id.r3);
         findViewById(R.id.d0).setBackgroundColor(Color.BLACK);
         levelNumber = level_num;
+        Log.d("MSG","level number at start: " + Integer.toString(level_num));
+
         for (int i = 0 ;i < 4 ; i++){
             result[i].setText(Integer.toString(r.nextInt(10)));
             /*need to hide safe code setVisibility(View.INVISIBLE);*/
@@ -60,6 +63,17 @@ public class Game extends AppCompatActivity {
             gameStatus[i] = false;
         }
         clearAllArrowsBackground(level_num);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(this,MainActivity.class);
+        finishAffinity();
+        finish();
+        startActivity(intent);
+
+
     }
 
     public void ButtonOnClick(View view){
@@ -161,39 +175,48 @@ public class Game extends AppCompatActivity {
         switch (v.getId()) {
             case (R.id.check_result0):
                 which_lvl = 0;
-                if_win = setResultOnPins(checkResultWithParams(findViewById(R.id.g0s0),findViewById(R.id.g0s1),findViewById(R.id.g0s2),findViewById(R.id.g0s3)), findViewById(R.id.g0pin0),findViewById(R.id.g0pin1),findViewById(R.id.g0pin2),findViewById(R.id.g0pin3));v.setVisibility(View.INVISIBLE); findViewById(R.id.g1s0).setVisibility(View.VISIBLE);findViewById(R.id.g1s1).setVisibility(View.VISIBLE);findViewById(R.id.g1s2).setVisibility(View.VISIBLE);findViewById(R.id.g1s3).setVisibility(View.VISIBLE);
+                if_win = setResultOnPins(checkResultWithParams(findViewById(R.id.g0s0),findViewById(R.id.g0s1),findViewById(R.id.g0s2),findViewById(R.id.g0s3)), findViewById(R.id.g0pin0),findViewById(R.id.g0pin1),findViewById(R.id.g0pin2),findViewById(R.id.g0pin3));
+                if(if_win != 1){v.setVisibility(View.INVISIBLE); findViewById(R.id.g1s0).setVisibility(View.VISIBLE);findViewById(R.id.g1s1).setVisibility(View.VISIBLE);findViewById(R.id.g1s2).setVisibility(View.VISIBLE);findViewById(R.id.g1s3).setVisibility(View.VISIBLE);}
                 break;
             case (R.id.check_result1):
                 which_lvl = 1;
-                if_win = setResultOnPins(checkResultWithParams( findViewById(R.id.g1s0),findViewById(R.id.g1s1),findViewById(R.id.g1s2),findViewById(R.id.g1s3)),findViewById(R.id.g1pin0),findViewById(R.id.g1pin1), findViewById(R.id.g1pin2),findViewById(R.id.g1pin3) );v.setVisibility(View.INVISIBLE);findViewById(R.id.g2s0).setVisibility(View.VISIBLE);findViewById(R.id.g2s1).setVisibility(View.VISIBLE);findViewById(R.id.g2s2).setVisibility(View.VISIBLE);findViewById(R.id.g2s3).setVisibility(View.VISIBLE);
+                if_win = setResultOnPins(checkResultWithParams( findViewById(R.id.g1s0),findViewById(R.id.g1s1),findViewById(R.id.g1s2),findViewById(R.id.g1s3)),findViewById(R.id.g1pin0),findViewById(R.id.g1pin1), findViewById(R.id.g1pin2),findViewById(R.id.g1pin3));
+                if(if_win != 1){v.setVisibility(View.INVISIBLE);findViewById(R.id.g2s0).setVisibility(View.VISIBLE);findViewById(R.id.g2s1).setVisibility(View.VISIBLE);findViewById(R.id.g2s2).setVisibility(View.VISIBLE);findViewById(R.id.g2s3).setVisibility(View.VISIBLE);}
                 break;
             case (R.id.check_result2):
                 which_lvl = 2;
-                if_win = setResultOnPins(checkResultWithParams(findViewById(R.id.g2s0),findViewById(R.id.g2s1),findViewById(R.id.g2s2),findViewById(R.id.g2s3)),findViewById(R.id.g2pin0),findViewById(R.id.g2pin1), findViewById(R.id.g2pin2),findViewById(R.id.g2pin3)); v.setVisibility(View.INVISIBLE);findViewById(R.id.g3s0).setVisibility(View.VISIBLE);findViewById(R.id.g3s1).setVisibility(View.VISIBLE);findViewById(R.id.g3s2).setVisibility(View.VISIBLE);findViewById(R.id.g3s3).setVisibility(View.VISIBLE);
+                if_win = setResultOnPins(checkResultWithParams(findViewById(R.id.g2s0),findViewById(R.id.g2s1),findViewById(R.id.g2s2),findViewById(R.id.g2s3)),findViewById(R.id.g2pin0),findViewById(R.id.g2pin1), findViewById(R.id.g2pin2),findViewById(R.id.g2pin3));
+                if(if_win != 1){v.setVisibility(View.INVISIBLE);findViewById(R.id.g3s0).setVisibility(View.VISIBLE);findViewById(R.id.g3s1).setVisibility(View.VISIBLE);findViewById(R.id.g3s2).setVisibility(View.VISIBLE);findViewById(R.id.g3s3).setVisibility(View.VISIBLE);}
                 break;
             case (R.id.check_result3):
                 which_lvl = 3;
-                if_win = setResultOnPins(checkResultWithParams(findViewById(R.id.g3s0),findViewById(R.id.g3s1), findViewById(R.id.g3s2),findViewById(R.id.g3s3)),findViewById(R.id.g3pin0),findViewById(R.id.g3pin1),findViewById(R.id.g3pin2),findViewById(R.id.g3pin3));v.setVisibility(View.INVISIBLE);findViewById(R.id.g4s0).setVisibility(View.VISIBLE);findViewById(R.id.g4s1).setVisibility(View.VISIBLE);findViewById(R.id.g4s2).setVisibility(View.VISIBLE);findViewById(R.id.g4s3).setVisibility(View.VISIBLE);
+                if_win = setResultOnPins(checkResultWithParams(findViewById(R.id.g3s0),findViewById(R.id.g3s1), findViewById(R.id.g3s2),findViewById(R.id.g3s3)),findViewById(R.id.g3pin0),findViewById(R.id.g3pin1),findViewById(R.id.g3pin2),findViewById(R.id.g3pin3));
+                if(if_win != 1){v.setVisibility(View.INVISIBLE);findViewById(R.id.g4s0).setVisibility(View.VISIBLE);findViewById(R.id.g4s1).setVisibility(View.VISIBLE);findViewById(R.id.g4s2).setVisibility(View.VISIBLE);findViewById(R.id.g4s3).setVisibility(View.VISIBLE);}
                 break;
             case (R.id.check_result4):
                 which_lvl = 4;
-                if_win = setResultOnPins(checkResultWithParams(findViewById(R.id.g4s0),findViewById(R.id.g4s1),findViewById(R.id.g4s2),findViewById(R.id.g4s3)),findViewById(R.id.g4pin0),findViewById(R.id.g4pin1),findViewById(R.id.g4pin2),findViewById(R.id.g4pin3) );v.setVisibility(View.INVISIBLE);findViewById(R.id.g5s0).setVisibility(View.VISIBLE);findViewById(R.id.g5s1).setVisibility(View.VISIBLE);findViewById(R.id.g5s2).setVisibility(View.VISIBLE);findViewById(R.id.g5s3).setVisibility(View.VISIBLE);
+                if_win = setResultOnPins(checkResultWithParams(findViewById(R.id.g4s0),findViewById(R.id.g4s1),findViewById(R.id.g4s2),findViewById(R.id.g4s3)),findViewById(R.id.g4pin0),findViewById(R.id.g4pin1),findViewById(R.id.g4pin2),findViewById(R.id.g4pin3) );
+                if(if_win != 1){v.setVisibility(View.INVISIBLE);findViewById(R.id.g5s0).setVisibility(View.VISIBLE);findViewById(R.id.g5s1).setVisibility(View.VISIBLE);findViewById(R.id.g5s2).setVisibility(View.VISIBLE);findViewById(R.id.g5s3).setVisibility(View.VISIBLE);}
                 break;
             case (R.id.check_result5):
                 which_lvl = 5;
-                if_win = setResultOnPins(checkResultWithParams(findViewById(R.id.g5s0),findViewById(R.id.g5s1),findViewById(R.id.g5s2),findViewById(R.id.g5s3)),findViewById(R.id.g5pin0),findViewById(R.id.g5pin1),findViewById(R.id.g5pin2),findViewById(R.id.g5pin3));v.setVisibility(View.INVISIBLE);findViewById(R.id.g6s0).setVisibility(View.VISIBLE);findViewById(R.id.g6s1).setVisibility(View.VISIBLE);findViewById(R.id.g6s2).setVisibility(View.VISIBLE);findViewById(R.id.g6s3).setVisibility(View.VISIBLE);
+                if_win = setResultOnPins(checkResultWithParams(findViewById(R.id.g5s0),findViewById(R.id.g5s1),findViewById(R.id.g5s2),findViewById(R.id.g5s3)),findViewById(R.id.g5pin0),findViewById(R.id.g5pin1),findViewById(R.id.g5pin2),findViewById(R.id.g5pin3));
+                if(if_win != 1){v.setVisibility(View.INVISIBLE);findViewById(R.id.g6s0).setVisibility(View.VISIBLE);findViewById(R.id.g6s1).setVisibility(View.VISIBLE);findViewById(R.id.g6s2).setVisibility(View.VISIBLE);findViewById(R.id.g6s3).setVisibility(View.VISIBLE);}
                 break;
             case (R.id.check_result6):
                 which_lvl = 6;
-                if_win = setResultOnPins(checkResultWithParams(findViewById(R.id.g6s0),findViewById(R.id.g6s1),findViewById(R.id.g6s2),findViewById(R.id.g6s3)), findViewById(R.id.g6pin0),findViewById(R.id.g6pin1),findViewById(R.id.g6pin2),findViewById(R.id.g6pin3));v.setVisibility(View.INVISIBLE);findViewById(R.id.g7s0).setVisibility(View.VISIBLE);findViewById(R.id.g7s1).setVisibility(View.VISIBLE);findViewById(R.id.g7s2).setVisibility(View.VISIBLE); findViewById(R.id.g7s3).setVisibility(View.VISIBLE);
+                if_win = setResultOnPins(checkResultWithParams(findViewById(R.id.g6s0),findViewById(R.id.g6s1),findViewById(R.id.g6s2),findViewById(R.id.g6s3)), findViewById(R.id.g6pin0),findViewById(R.id.g6pin1),findViewById(R.id.g6pin2),findViewById(R.id.g6pin3));
+                if(if_win != 1){v.setVisibility(View.INVISIBLE);findViewById(R.id.g7s0).setVisibility(View.VISIBLE);findViewById(R.id.g7s1).setVisibility(View.VISIBLE);findViewById(R.id.g7s2).setVisibility(View.VISIBLE); findViewById(R.id.g7s3).setVisibility(View.VISIBLE);}
                 break;
             case (R.id.check_result7):
                 which_lvl = 7;
-                if_win = setResultOnPins(checkResultWithParams(findViewById(R.id.g7s0),findViewById(R.id.g7s1),findViewById(R.id.g7s2),findViewById(R.id.g7s3)),findViewById(R.id.g7pin0),findViewById(R.id.g7pin1),findViewById(R.id.g7pin2),findViewById(R.id.g7pin3));v.setVisibility(View.INVISIBLE);findViewById(R.id.g8s0).setVisibility(View.VISIBLE);findViewById(R.id.g8s1).setVisibility(View.VISIBLE);findViewById(R.id.g8s2).setVisibility(View.VISIBLE);findViewById(R.id.g8s3).setVisibility(View.VISIBLE);
+                if_win = setResultOnPins(checkResultWithParams(findViewById(R.id.g7s0),findViewById(R.id.g7s1),findViewById(R.id.g7s2),findViewById(R.id.g7s3)),findViewById(R.id.g7pin0),findViewById(R.id.g7pin1),findViewById(R.id.g7pin2),findViewById(R.id.g7pin3));
+                if(if_win != 1){v.setVisibility(View.INVISIBLE);findViewById(R.id.g8s0).setVisibility(View.VISIBLE);findViewById(R.id.g8s1).setVisibility(View.VISIBLE);findViewById(R.id.g8s2).setVisibility(View.VISIBLE);findViewById(R.id.g8s3).setVisibility(View.VISIBLE);}
                 break;
             case (R.id.check_result8):
                 which_lvl = 8;
-                if_win = setResultOnPins(checkResultWithParams(findViewById(R.id.g8s0),findViewById(R.id.g8s1),findViewById(R.id.g8s2),findViewById(R.id.g8s3)),findViewById(R.id.g8pin0),findViewById(R.id.g8pin1),findViewById(R.id.g8pin2),findViewById(R.id.g8pin3));v.setVisibility(View.INVISIBLE);
+                if_win = setResultOnPins(checkResultWithParams(findViewById(R.id.g8s0),findViewById(R.id.g8s1),findViewById(R.id.g8s2),findViewById(R.id.g8s3)),findViewById(R.id.g8pin0),findViewById(R.id.g8pin1),findViewById(R.id.g8pin2),findViewById(R.id.g8pin3));
+                if(if_win != 1){v.setVisibility(View.INVISIBLE);}
                 break;
         }
         checkLevelContinuation(if_win,which_lvl);
@@ -246,6 +269,9 @@ public class Game extends AppCompatActivity {
         pinsStatus[0] = white;
         pinsStatus[1] = pins - white;
         pinsStatus[2] = result.length - pins;
+
+        score = score - (175*(pins - white));
+        score = score - (250*(result.length - pins));
 
         return pinsStatus;
     }
@@ -317,7 +343,7 @@ public class Game extends AppCompatActivity {
             if( ifWin == 0 && whichLevel == 4){endGameSession(0);}
         }
 
-        else if(ifWin == 1){
+        if(ifWin == 1){
             endGameSession(1);
         }
         else{
@@ -327,7 +353,9 @@ public class Game extends AppCompatActivity {
 
     public void endGameSession(int winOrLose){
         showResult();
-        int score =1;
+
+        Log.d("MSG","level number send to: " + Integer.toString(levelNumber));
+
         Intent intent = new Intent(this,PopUp.class);
         intent.putExtra(LEVEL,levelNumber);
         intent.putExtra(SCORE,score);
