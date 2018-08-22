@@ -10,8 +10,9 @@ public class MusicManager extends AppCompatActivity {
     private   MediaPlayer backgroundsong;
     private   MediaPlayer buttonEffect;
     private   int musicIsMute;
+    private int effectIsMute;
 
-    protected MusicManager(){
+    public MusicManager(){
     }
 
     protected MusicManager(AppCompatActivity ap){
@@ -20,7 +21,7 @@ public class MusicManager extends AppCompatActivity {
         backgroundsong.start();
         buttonEffect = MediaPlayer.create(ap, R.raw.buttoneffect);
         musicIsMute=0;
-
+        effectIsMute=0;
     }
 
     public static MusicManager getMusicManager(AppCompatActivity ap){
@@ -32,44 +33,69 @@ public class MusicManager extends AppCompatActivity {
     }
 
     public void stopMusic(){
-        if(musicIsMute == 0)
-            if(backgroundsong.isPlaying()){
-                    backgroundsong.stop();
-            }
-    }
+        Log.d("MSG","status_show:stopMusic -" +musicIsMute);
 
-    public void pauseMusic(){
         if(musicIsMute == 0)
-            if(backgroundsong.isPlaying()){
-                    backgroundsong.pause();
-            }
+            backgroundsong.pause();
+        Log.d("MSG","status_show:stopping music");
 
     }
+
 
     public void startMusic(){
-        if(musicIsMute == 0)
-            if(!backgroundsong.isPlaying()){
-                backgroundsong.start();
-                Log.d("MSG","starting music");
+        Log.d("MSG","status_show:startMusic -" +musicIsMute);
 
-            }
+        if(musicIsMute == 0)
+            backgroundsong.start();
+        Log.d("MSG","status_show:starting music");
+    }
+
+
+    public void stopEffect(){
+        Log.d("MSG","status_show:stopEffect -" +effectIsMute);
+
+        if(effectIsMute == 0)
+            buttonEffect.pause();
+        Log.d("MSG","status_show:stopping effect");
 
     }
 
+
+    public void startEffect(){
+        Log.d("MSG","status_show:startEffect -" +effectIsMute);
+
+        if(effectIsMute == 0)
+            buttonEffect.start();
+        Log.d("MSG","status_show:starting effect");
+    }
+
+
     public void buttonClick(){
-        if(musicIsMute == 0)
+        if(effectIsMute == 0)
              buttonEffect.start();
     }
 
-    public void muteMusic(int status){
-        Log.d("MSG","status" +status);
+
+    public int getIsMute(){
+        return musicIsMute;
+    }
+
+    public int getIsEffect(){
+        return effectIsMute;
+    }
+
+
+
+    public void changeMusicStatus(int status){
+        Log.d("MSG","status_show " +status);
 
         if(status == 0){
-
+            Log.d("MSG","status_show:going to start effect");
             musicIsMute = 0;
             musicManager.startMusic();
 
         }else {
+            Log.d("MSG","status_show:going to stop effect");
             musicManager.stopMusic();
             musicIsMute = 1;
 
@@ -78,9 +104,24 @@ public class MusicManager extends AppCompatActivity {
 
     }
 
-    public int getIsMute(){
-        return musicIsMute;
+
+    public void changeEffectStatus(int status) {
+        Log.d("MSG", "status_show " + status);
+
+        if (status == 0) {
+            Log.d("MSG", "status_show:going to start effect");
+            effectIsMute = 0;
+            musicManager.startEffect();
+
+        } else {
+            Log.d("MSG", "status_show:going to stop effect");
+            musicManager.stopEffect();
+            effectIsMute = 1;
+
+        }
     }
+
+
 
 
 }

@@ -1,26 +1,34 @@
 package yarinhala.com.shenkar.mastermindsafeedition;
 
+import android.app.KeyguardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.nfc.Tag;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Random;
+import java.util.logging.Handler;
 import java.util.logging.Level;
+import java.util.logging.LogRecord;
 
 public class Game extends AppCompatActivity {
     final static String LEVEL = "yarinhala.com.shenkar.mastermindsafeedition.LEVEL";
     final static String SCORE = "yarinhala.com.shenkar.mastermindsafeedition.SCORE";
+    final static String SCORE_AT_START = "yarinhala.com.shenkar.mastermindsafeedition.SCORE_AT_START";
     final static String WIN_OR_LOSE = "yarinhala.com.shenkar.mastermindsafeedition.WIN_OR_LOSE";
 
-    private MediaPlayer buttonEffect = null ;
+    private  MusicManager musicManager;
+    private  Timer timerManager;
     private int number_picketed;
     private TextView textView_picketed;
     private String number_str;
@@ -31,38 +39,102 @@ public class Game extends AppCompatActivity {
     private Boolean[] gameStatus = new Boolean[36];
     private int currentSlotPlayed;
     private int levelNumber = 0;
-    private int score = 9000;
+    private int score = 10000;
+    private int scoreAtstart;
+
+    private TextView scoreText;
+    private TextView stopWatchText;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_game);
+        timerManager = Timer.getTimerManager();
+        stopWatchText = findViewById(R.id.stopWatch);
+
+        musicManager = MusicManager.getMusicManager(this);
 
         Intent intent = getIntent();
         int level_num = intent.getIntExtra(Levels.LEVEL_VALUE,1);
-        buttonEffect = MediaPlayer.create(this, R.raw.buttoneffect);
+        int score_count = intent.getIntExtra(PopUp.LAST_SCORE,0);
+        int win_or_lose = intent.getIntExtra(PopUp.LAST_WIN_OR_LOSE,1);
+
         number_picketed = 0;
         number_str = "";
         currentSlotPlayed = 0;
         Random r = new Random();
+
         result[0] = findViewById(R.id.r0);
         result[1] = findViewById(R.id.r1);
         result[2] = findViewById(R.id.r2);
         result[3] = findViewById(R.id.r3);
+
+
+
         findViewById(R.id.d0).setBackgroundColor(Color.BLACK);
         levelNumber = level_num;
+
+        if(win_or_lose == 0){
+            score = score_count;
+        }
+        else{
+            score = score - (levelNumber*1000);
+            score = score + score_count;
+            scoreAtstart = score;
+        }
+
+        scoreText = findViewById(R.id.score);
+        scoreText.setText(Integer.toString(score));
+
         Log.d("MSG","level number at start: " + Integer.toString(level_num));
 
         for (int i = 0 ;i < 4 ; i++){
             result[i].setText(Integer.toString(r.nextInt(10)));
             /*need to hide safe code setVisibility(View.INVISIBLE);*/
+            result[i].setVisibility(View.INVISIBLE);
         }
 
         for (int i = 0 ; i < gameStatus.length ; i ++){
             gameStatus[i] = false;
         }
         clearAllArrowsBackground(level_num);
+
+        if(timerManager.getIsOnTimer()) {
+            //need to change to 360000
+            new CountDownTimer(360000, 1000) {
+                @Override
+                public void onTick(long millisUntilFinished) {
+
+                    double time = millisUntilFinished;
+                    time = time / 72000;
+                    while (time > 1) {
+                        time = time - 1;
+                    }
+                    time = time * 60;
+                    Log.d("MSGC", "start:" + Double.toString((int) time));
+                    if (time > 10) {
+                        stopWatchText.setText("0" + Long.toString((int) (millisUntilFinished / 72000)) + ":" + Long.toString((int) time));
+                    } else {
+                        stopWatchText.setText("0" + Long.toString((int) (millisUntilFinished / 72000)) + ":0" + Long.toString((int) time));
+
+                    }
+
+                }
+
+                @Override
+                public void onFinish() {
+                    stopWatchText.setText("00:00");
+                    score = 0;
+                    endGameSession(0);
+                }
+            }.start();
+
+        }else{
+            stopWatchText.setText("Take Your Time!");
+        }
+
     }
 
     @Override
@@ -273,6 +345,8 @@ public class Game extends AppCompatActivity {
         score = score - (175*(pins - white));
         score = score - (250*(result.length - pins));
 
+        scoreText.setText(Integer.toString(score));
+
         return pinsStatus;
     }
 
@@ -358,11 +432,13 @@ public class Game extends AppCompatActivity {
 
         Intent intent = new Intent(this,PopUp.class);
         intent.putExtra(LEVEL,levelNumber);
-        intent.putExtra(SCORE,score);
+        intent.putExtra(SCORE, score);
+        intent.putExtra(SCORE_AT_START,scoreAtstart);
+
+        Log.d("MSG","points: " + Integer.toString(score));
         intent.putExtra(WIN_OR_LOSE,winOrLose);
         startActivity(intent);
     }
-
 
     public  void showResult(){
         findViewById(R.id.r0).setVisibility(View.VISIBLE);
@@ -371,7 +447,17 @@ public class Game extends AppCompatActivity {
         findViewById(R.id.r3).setVisibility(View.VISIBLE);
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+         musicManager.stopMusic();
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        musicManager.startMusic();
+    }
 
 
 }

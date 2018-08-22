@@ -1,16 +1,20 @@
 package yarinhala.com.shenkar.mastermindsafeedition;
 
+import android.app.KeyguardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.os.Build;
+import android.os.PowerManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    //private   MediaPlayer backgroundsong;
-    //private   MediaPlayer buttonEffect;
+
     private  MusicManager musicManager;
 
     @Override
@@ -42,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 musicManager.buttonClick();
-                startActivity(new Intent(MainActivity.this, Scores.class));
+                //startActivity(new Intent(MainActivity.this, Scores.class));
             }
         });
 
@@ -83,4 +87,21 @@ public class MainActivity extends AppCompatActivity {
         finish();
         System.exit(0);
     }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("MSG-ON-MainActivity","onPause");
+            musicManager.stopMusic();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("MSG-ON-MainActivity","onResume");
+        musicManager.startMusic();
+    }
+
 }
